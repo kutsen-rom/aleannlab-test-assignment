@@ -46,7 +46,7 @@ interface IState {
 }
 
 
-function App() {
+export default function App() {
 
   /**
    * Create state with a default value of null and a type: array of jobs or null
@@ -115,8 +115,7 @@ function App() {
 
   return (
     <Routes>
+          <Route path='/' element={<JobList jobs={jobs} />} />
     </Routes>
   );
 }
-
-export default App;

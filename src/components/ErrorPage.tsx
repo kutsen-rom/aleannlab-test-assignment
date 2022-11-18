@@ -1,4 +1,4 @@
-export default function JobList() {
+export default function ErrorPage() {
     return (
         <div>
 

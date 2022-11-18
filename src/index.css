@@ -11,8 +11,8 @@
     --color-text: #5C637A;
     --color-paragraph: rgba(56, 65, 93, 0.82);
   }
+}
 
 html {
   font-family: proxima-nova, sans-serif;
- 
 }

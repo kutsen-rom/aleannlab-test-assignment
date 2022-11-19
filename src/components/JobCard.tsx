@@ -111,7 +111,7 @@ export default function JobCard({ job }: IProps) {
           </div>
 
           {/* JOB TITLE */}
-          <h2 className="text-brand text-lg h-12 overflow-hidden leading-[24px] tracking-[-0.5625px]">
+          <h2 className="text-brand text-lg h-12 overflow-hidden leading-[24px] tracking-tighter">
             {job.title}
           </h2>
 

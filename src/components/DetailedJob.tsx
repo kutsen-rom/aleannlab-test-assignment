@@ -107,7 +107,7 @@ useEffect(() => {
           <div>
 
             {/* LINE: BRUTTO */}
-            <p className="text-text text-lg tracking-[-0.5625px] text-right mt-1">
+            <p className="text-text text-lg tracking-tighter file:text-right mt-1">
               Brutto, per year
             </p>
 
@@ -119,7 +119,7 @@ useEffect(() => {
         </div>
 
         {/* PARAGRAPH: DESCRIPTION */}
-        <p className="text-paragraph text-lg leading-6 tracking-[-0.5625px]">
+        <p className="text-paragraph text-lg leading-6 tracking-tighter">
           {description}
         </p>
 
@@ -129,7 +129,7 @@ useEffect(() => {
         </h4>
 
         {/* PARAGRAPH: RESPONSOPILITIES */}
-        <p className="text-paragraph text-lg leading-6 tracking-[-0.5625px]">
+        <p className="text-paragraph text-lg leading-6 tracking-tighter">
           {responsopilities}
         </p>
 
@@ -139,7 +139,7 @@ useEffect(() => {
         </h4>
 
         {/* LINE: FIRST SENTENCE OF COMPENSATION & BENEFITS */}
-        <p className="text-paragraph text-lg leading-6 tracking-[-0.5625px]">
+        <p className="text-paragraph text-lg leading-6 tracking-tighter">
           {benefits[0]}:
         </p>
 
@@ -162,7 +162,7 @@ useEffect(() => {
                   <li className="text-[rgba(56,_69,_100,_0.632594)] text-2xl list-[square] list-inside ml-[1.5px]"></li>
 
                   {/* LIST ITEM: TEXT */}
-                  <span className="text-paragraph text-lg leading-6 tracking-[-0.5625px] pl-0">
+                  <span className="text-paragraph text-lg leading-6 tracking-tighter pl-0">
                     {benefit}.
                   </span>
                 </div>
@@ -226,7 +226,7 @@ useEffect(() => {
         <hr className="mt-1 mb-4 w-[81%]" />
 
         {/* LINE: EMPLOYMENT TYPE */}
-        <h3 className="text-text text-lg mb-2 tracking-[-0.5625px]">
+        <h3 className="text-text text-lg mb-2 tracking-tighter">
           Employment type
         </h3>
 
@@ -250,7 +250,7 @@ useEffect(() => {
         </div>
 
         {/* LINE: BENEFITS */}
-        <h3 className="text-text text-lg mb-2 mt-[5.5%] tracking-[-0.5625px]">
+        <h3 className="text-text text-lg mb-2 mt-[5.5%] tracking-tighter">
           Benefits
         </h3>
 

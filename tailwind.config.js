@@ -17,6 +17,9 @@ module.exports = {
       },
       borderColor: {
         brand: "var(--color-brand)",
+      },
+      letterSpacing: {
+        tighter: '-0.5625px'
       }
     },
   },

@@ -7,12 +7,12 @@ export default function ErrorPage() {
 
   return (
 
-    // MAIN CONTAINER: ERROR PAGE + ERROR LINE
-    <div className="h-[100vh] bg-background md:bg-white flex flex-col items-center justify-center text-brand text-xl md:text-2xl font-extrabold ">
+    // MAIN CONTAINER: ERROR PAGE & ERROR LINE
+    <div className="main-container-error-page-and-error-line h-[100vh] bg-background md:bg-white flex flex-col items-center justify-center text-brand text-xl md:text-2xl font-extrabold ">
       Oops. Something gone wrong...
 
       {/* CONTAINER: BUTTONS */}
-      <div className=" w-72 md:w-[36rem] md:mt-3 flex justify-around ">
+      <div className="container-buttons w-72 md:w-[36rem] md:mt-3 flex justify-around ">
 
         {/* BUTTON: GO BACK */}
         <button

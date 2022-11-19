@@ -38,7 +38,6 @@ useEffect(() => {
   }
 
 
-
   // Get description paragraph string from start of job.description article to Responsopilities header
   const description = job.description.split("Responsopilities:")[0];
 
@@ -60,19 +59,19 @@ useEffect(() => {
 
     return (
         // MAIN CONTAINER: JOB DETAILS PAGE
-        <div className=" flex justify-center mt-5 flex-row-reverse lg:mt-14">
+        <div className="main-container-job-details-page flex justify-center mt-5 flex-row-reverse lg:mt-14">
     
-          {/* CONTAINER: CONTACTS & MAP */}
-          <div className="hidden lg:block ml-[8.5rem] h-[15.4%] overflow-hidden w-[21.1%] rounded-xl">
+          {/* LG: CONTAINER: CONTACTS & MAP */}
+          <div className="container-contacts-and-map hidden lg:block ml-[8.5rem] h-[15.4%] overflow-hidden w-[21.1%] rounded-xl">
             
             {/* CONTAINER: CONTACTS */}
-            <div className="bg-[#2A3047] text-[#E7EAF0] pl-[16.8%] lg:pl-[15.6%] relative overflow-hidden z-0">
+            <div className="container-contacts bg-[#2A3047] text-[#E7EAF0] pl-[16.8%] lg:pl-[15.6%] relative overflow-hidden z-0">
     
-              {/* CONTACTS BACKGROUND CIRCLE */}
-              <div className="bg-[#202336] w-72 h-64 absolute left-[-5.5rem] rounded-full -z-10 hidden lg:block"></div>
+              {/* LG: CONTACTS BACKGROUND CIRCLE */}
+              <div className="contacts-background-circle bg-[#202336] w-72 h-64 absolute left-[-5.5rem] rounded-full -z-10 hidden lg:block"></div>
     
               {/* LINE: DEPARTMENT NAME FIRST LINE */}
-              <h3 className="tracking-[0.23619px] font-semibold pt-8 leading-[19px] lg:text-xl lg:leading-[25px] lg:tracking-[-0.625px] lg:font-medium">
+              <h3 className="line-department-name tracking-[0.23619px] font-semibold pt-8 leading-[1.1875rem] lg:text-xl lg:leading-[1.5625rem] lg:tracking-[-0.625px] lg:font-medium">
                 Department name.
     
                 {/* LINE BREAK */}
@@ -83,7 +82,7 @@ useEffect(() => {
               </h3>
     
               {/* LINE: ADDRESS */}
-              <p className="flex tracking-[0.5px] mt-4 text-[15px] font-thin lg:text-lg lg:leading-[24px] lg:tracking-tighter lg:mt-2">
+              <p className="line-address flex tracking-[0.5px] mt-4 text-[0.9375rem] font-thin lg:text-lg lg:leading-[1.5rem] lg:tracking-tighter lg:mt-2">
     
                 {/* IMAGE: GEO MARKER */}
                 <img src="/images/geo.svg" className="w-3 mr-2 lg:w-[0.875rem]" />
@@ -95,7 +94,7 @@ useEffect(() => {
     
               {/** PARAGRAPH: PHONE NUMBER & EMAIL **/}
               {/* LINE: PHONE NUMBER */}
-              <p className="text-[rgba(255,_255,_255,_0.669635)] font-thin tracking-[0.5px] pt-2 pb-[10%] text-[15px] lg:text-[#E7EAF0] lg:tracking-tighter lg:text-lg lg:leading-[24px]">
+              <p className="paragraph-phone-number-and-email text-[rgba(255,_255,_255,_0.669635)] font-thin tracking-[0.5px] pt-2 pb-[10%] text-[0.9375rem] lg:text-[#E7EAF0] lg:tracking-tighter lg:text-lg lg:leading-[1.5rem]">
                 {job.phone},
     
                 {/* LINE BREAK */}
@@ -107,7 +106,7 @@ useEffect(() => {
             </div>
     
             {/* CONTAINER: MAP */}
-            <div className="w-full h-80 overflow-hidden lg:h-[14.5rem]">
+            <div className="container-map w-full h-80 overflow-hidden lg:h-[14.5rem]">
     
               {/* MAP */}
               <img
@@ -118,13 +117,13 @@ useEffect(() => {
           </div>
     
           {/** CONTAINER: ALL JOB DETAILS **/}
-          <div className=" w-[92%] lg:w-[38%] lg:ml-6">
+          <div className="container-all-jobs-details w-[92%] lg:w-[38%] lg:ml-6">
     
             {/** CONTAINER: JOB DETAILS & BUTTONS **/}
-            <div className="lg:flex items-center justify-between">
+            <div className="container-job-details-and-buttons lg:flex items-center justify-between">
     
               {/* MAIN HEADER: JOB DETAILS */}
-              <h1 className="text-brand text-left font-bold text-[28px] pb-2 tracking-[0.413333px] lg:pb-1">
+              <h1 className="main-header-job-details text-brand text-left font-bold text-[1.75rem] pb-2 tracking-[0.413333px] lg:pb-1">
                 Job Details
               </h1>
     
@@ -132,7 +131,7 @@ useEffect(() => {
               <hr className="mt-1 mb-6 lg:hidden" />
     
               {/** CONTAINER: BUTTONS **/}
-              <div className="my-6 flex lg:my-0 text-text lg:text-lg">
+              <div className="container-buttons my-6 flex lg:my-0 text-text lg:text-lg">
     
                 {/* BUTTON: SAVE TO MY LIST */}
                 <button
@@ -158,71 +157,71 @@ useEffect(() => {
               </div>
             </div>
     
-            {/* HORIZONTAL LINE */}
+            {/* LG: HORIZONTAL LINE */}
             <hr className="mb-6 hidden lg:block" />
     
-            {/* BUTTON: APPLY NOW */}
+            {/* LG: BUTTON: APPLY NOW */}
             <button className="hidden lg:block text-white bg-brand px-8 py-4 text-xs rounded-md font-light mt-9 hover:opacity-80 transition duration-75 active:opacity-90 focus:outline-brand focus:outline-offset-2">
               APPLY NOW
             </button>
     
-            {/* JOB TITLE */}
-            <div className="lg:flex items-start justify-between lg:mt-9">
-              <h2 className="text-brand font-bold text-2xl leading-[30px] tracking-[-0.75px] mt-8 lg:mt-0 lg:w-[65%] ">
+            {/* LINE: JOB TITLE */}
+            <div className="line-job-title lg:flex items-start justify-between lg:mt-9">
+              <h2 className="text-brand font-bold text-2xl leading-[1.875rem] tracking-[-0.75px] mt-8 lg:mt-0 lg:w-[65%] ">
                 {job.title}
               </h2>
     
               {/* CONTAINER: POSTED & SALARY */}
-              <div className="flex justify-between items-center">
+              <div className="container-posted-and-salary flex justify-between items-center">
     
-                {/* POSTED */}
-                <p className="text-xs font-light text-[#0304079a] lg:hidden">
+                {/* LINE: POSTED */}
+                <p className="line-posted text-xs font-light text-[#0304079a] lg:hidden">
                   Posted {calculateDate(job.createdAt)} years ago
                 </p>
     
                 {/* CONTAINER: SALARY*/}
-                <div className="lg:flex lg:flex-col-reverse">
+                <div className="container-salary lg:flex lg:flex-col-reverse">
     
                   {/* LINE: BRUTTO */}
-                  <p className="text-text text-lg tracking-tighter text-right mt-1 lg:mt-0 lg:text-left">
+                  <p className="line-brutto text-text text-lg tracking-tighter text-right mt-1 lg:mt-0 lg:text-left">
                     Brutto, per year
                   </p>
     
                   {/* LINE: SALARY RANGE */}
-                  <h3 className="text-brand font-bold text-xl text-right mb-3 tracking-[-0.625px] lg:mb-0">
+                  <h3 className="line-salary-range text-brand font-bold text-xl text-right mb-3 tracking-[-0.625px] lg:mb-0">
                     € {job.salary.replace(/-/, "—").replace(/k/gi, " 000")}
                   </h3>
                 </div>
               </div>
             </div>
     
-            {/* POSTED */}
-            <p className="hidden lg:block text-lg font-light text-[rgba(56,_65,_93,_0.355988)] tracking-[0.5625px] mt-2 mb-1">
+            {/* LG: POSTED */}
+            <p className="lg-line-posted hidden lg:block text-lg font-light text-[rgba(56,_65,_93,_0.355988)] tracking-[0.5625px] mt-2 mb-1">
               Posted {calculateDate(job.createdAt)} years ago
             </p>
     
             {/* PARAGRAPH: DESCRIPTION */}
-            <p className="text-paragraph text-lg leading-6 tracking-tighter">
+            <p className="paragraph-description text-paragraph text-lg leading-6 tracking-tighter">
               {description}
             </p>
     
             {/* LINE: RESPONSOPILITIES */}
-            <h4 className="text-brand font-bold mt-10 mb-1 text-xl tracking-[-0.625px] lg:mt-9">
+            <h4 className="line-responsopilities text-brand font-bold mt-10 mb-1 text-xl tracking-[-0.625px] lg:mt-9">
               Responsopilities
             </h4>
     
             {/* PARAGRAPH: RESPONSOPILITIES */}
-            <p className="text-paragraph text-lg leading-6 tracking-tighter">
+            <p className="paragraph-responsopilities text-paragraph text-lg leading-6 tracking-tighter">
               {responsopilities}
             </p>
     
             {/* LINE: COMPENSATION & BENEFITS */}
-            <h4 className="text-brand font-bold mt-4 mb-7 text-xl tracking-[-0.625px] lg:mt-9 lg:mb-2">
+            <h4 className="line-compensation-and-benefits text-brand font-bold mt-4 mb-7 text-xl tracking-[-0.625px] lg:mt-9 lg:mb-2">
               Compensation & Benefits:
             </h4>
     
             {/* LINE: FIRST SENTENCE OF COMPENSATION & BENEFITS */}
-            <p className="text-paragraph text-lg leading-6 tracking-tighter">
+            <p className="line-first-sentence-of-compensation-and-benefits text-paragraph text-lg leading-6 tracking-tighter">
               {benefits[0]}:
             </p>
     
@@ -237,7 +236,7 @@ useEffect(() => {
                     // CONTAINER: LIST ITEM
                     <div key={index} className="flex ">
                       {/* LIST ITEM: BULLET POINT */}
-                      <li className="text-[rgba(56,_69,_100,_0.632594)] text-2xl list-[square] list-inside ml-[1.5px] lg:list-outside lg:leading-6"></li>
+                      <li className="text-[rgba(56,_69,_100,_0.632594)] text-2xl list-[square] list-inside ml-[0.09375rem] lg:list-outside lg:leading-6"></li>
                       {/* LIST ITEM: TEXT */}
                       <span className="text-paragraph text-lg leading-6 tracking-tighter pl-0">
                         {benefit}.
@@ -249,7 +248,7 @@ useEffect(() => {
             </ul>
     
             {/* CONTAINER: BUTTON */}
-            <div className="flex justify-center mt-6 lg:justify-start lg:mt-8">
+            <div className="container-button flex justify-center mt-6 lg:justify-start lg:mt-8">
     
               {/* BUTTON: APPLY NOW */}
               <button className="text-white bg-brand px-8 py-4 text-xs rounded-md lg:font-light hover:opacity-80 transition duration-75 active:opacity-90 focus:outline-brand focus:outline-offset-2">
@@ -258,14 +257,14 @@ useEffect(() => {
             </div>
     
             {/* CONTAINER: ATTACHED IMAGES & ADDITIONAL INFO */}
-            <div className="lg:flex flex-col-reverse">
+            <div className="container-attached-images-and-additional-info lg:flex flex-col-reverse">
     
     
               {/** SECTION: ATTACHED IMAGES **/}
               <div>
     
                 {/* HEADER: ATTACHED IMAGES */}
-                <h2 className="text-brand font-bold text-[28px] tracking-[0.413333px] mt-[34.5%] lg:mt-20">
+                <h2 className="text-brand font-bold text-[1.75rem] tracking-[0.413333px] mt-[34.5%] lg:mt-20">
                   Attached images
                 </h2>
     
@@ -273,7 +272,7 @@ useEffect(() => {
                 <hr className="mt-1 mb-6 lg:mb-5" />
     
                 {/* CONTAINER: IMAGES */}
-                <div className="w-full overflow-hidden">
+                <div className="container-images w-full overflow-hidden">
     
                   {/* CONTAINER: IMAGES (SWIPER REACT COMPONENT) */}
                   <Swiper
@@ -307,7 +306,7 @@ useEffect(() => {
                         <SwiperSlide key={index}>
                           {/* IMAGE */}
                           <img
-                            className="object-cover object-bottom w-full h-[115px] rounded-lg"
+                            className="object-cover object-bottom w-full h-[7.1875rem] rounded-lg"
                             src={picture}
                           />
                         </SwiperSlide>
@@ -321,7 +320,7 @@ useEffect(() => {
               <div>
     
                 {/* HEADER: ADDITIONAL INFO */}
-                <h2 className="text-brand font-bold text-[28px] tracking-[0.413333px] mt-[15.5%]">
+                <h2 className="text-brand font-bold text-[1.75rem] tracking-[0.413333px] mt-[15.5%]">
                   Additional info
                 </h2>
     
@@ -340,7 +339,7 @@ useEffect(() => {
                   {job.employment_type.map((type) => {
                     return (
                       // CONTAINER: SINGLE EMPLOYMENT TYPE
-                      <div className="bg-[#E1E6F4] w-1/3 mr-[2%] py-3 border border-[#A7AFC5] rounded-lg">
+                      <div className="container-single-employment-type bg-[#E1E6F4] w-1/3 mr-[2%] py-3 border border-[#A7AFC5] rounded-lg">
                         {/* LINE: SINGLE EMPLOYMENT TYPE */}
                         <h4 className="ml-[32%] text-[#55699E] font-bold tracking-[-0.457143px]">
                           {type}
@@ -356,13 +355,13 @@ useEffect(() => {
                 </h3>
     
                 {/* CONTAINER: ALL BENEFITS */}
-                <div className="flex">
+                <div className="all-benefits flex">
     
                   {/* For every benefit */}
                   {job.benefits.map((benefit) => {
                     return (
                       // CONTAINER: SINGLE BENEFIT
-                      <div className="bg-[#FFF8D9] w-1/3 text-right mr-2 py-3 border border-[#FFCF00] rounded-lg">
+                      <div className="single-benefit bg-[#FFF8D9] w-1/3 text-right mr-2 py-3 border border-[#FFCF00] rounded-lg">
                         {/* LINE: SINGLE BENEFIT */}
                         <h4 className="text-[#988B49] font-bold tracking-[-0.4px] text-center">
                           {benefit}
@@ -375,10 +374,10 @@ useEffect(() => {
             </div>
     
             {/**  SECTION: CONTACTS  **/}
-            <div className="lg:hidden">
+            <div className="section-contacts lg:hidden">
     
               {/* HEADER: CONTACTS */}
-              <h2 className="text-brand font-bold text-[28px] tracking-[0.413333px] mt-[15.5%]">
+              <h2 className="text-brand font-bold text-[1.75rem] tracking-[0.413333px] mt-[15.5%]">
                 Contacts
               </h2>
     
@@ -386,13 +385,13 @@ useEffect(() => {
               <hr className="mt-1 mb-6" />
     
               {/* CONTAINER: CONTACTS & MAP*/}
-              <div className="w-[97.5%] ml-[7px] h-[15.4%] rounded-lg overflow-hidden">
+              <div className="container-contacts-and-map w-[97.5%] ml-[0.4375rem] h-[15.4%] rounded-lg overflow-hidden">
     
                 {/* CONTAINER: CONTACTS */}
-                <div className="bg-[#2A3047] text-[#E7EAF0] pl-[16.8%]">
+                <div className="container-contacts bg-[#2A3047] text-[#E7EAF0] pl-[16.8%]">
     
                   {/* LINE: DEPARTMENT NAME FIRST LINE */}
-                  <h3 className="tracking-[0.23619px] font-semibold pt-8 leading-[19px]">
+                  <h3 className="tracking-[0.23619px] font-semibold pt-8 leading-[1.1875rem]">
                     Department name.
     
                     {/* LINE BREAK */}
@@ -403,7 +402,7 @@ useEffect(() => {
                   </h3>
     
                   {/* LINE: ADDRESS */}
-                  <p className="flex tracking-[0.5px] mt-4 text-[15px] font-thin">
+                  <p className="flex tracking-[0.5px] mt-4 text-[0.9375rem] font-thin">
     
                     {/* IMAGE: GEO MARKER */}
                     <img src="/images/geo.svg" className="w-3 mr-2 " />
@@ -414,7 +413,7 @@ useEffect(() => {
                 </p>
     
                   {/* LINE: PHONE NUMBER */}
-                  <p className="text-[rgba(255,_255,_255,_0.669635)] font-thin tracking-[0.5px] pt-2 pb-[10%] text-[15px]">
+                  <p className="text-[rgba(255,_255,_255,_0.669635)] font-thin tracking-[0.5px] pt-2 pb-[10%] text-[0.9375rem]">
                     {job.phone},
                     
                     {/* LINE BREAK */}
@@ -426,7 +425,7 @@ useEffect(() => {
                 </div>
     
                 {/* CONTAINER: MAP */}
-                <div className="w-full h-80 overflow-hidden">
+                <div className="container-map w-full h-80 overflow-hidden">
     
                   {/* MAP */}
                   <img
@@ -437,8 +436,8 @@ useEffect(() => {
               </div>
             </div>
     
-            {/* CONTAINER: BUTTON, RETURN TO JOB BOARD */}
-            <div className="relative mt-24 pb-52 hidden lg:block">
+            {/* LG: CONTAINER: BUTTON, RETURN TO JOB BOARD */}
+            <div className="container-return-to-job-board-button relative mt-24 pb-52 hidden lg:block">
     
               {/* BUTTON: RETURN TO JOB BOARD */}
               <button onClick={() => navigate('/')} className="absolute -left-[5.5rem] text-brand bg-[#384564]/[0.14] rounded-lg flex px-6 py-3 font-semibold text-xs items-center">

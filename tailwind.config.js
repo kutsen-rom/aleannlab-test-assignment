@@ -15,6 +15,9 @@ module.exports = {
         background: "var(--color-background)",
         "background-job": "var(--color-background-job)",
       },
+      borderColor: {
+        brand: "var(--color-brand)",
+      }
     },
   },
   plugins: [],

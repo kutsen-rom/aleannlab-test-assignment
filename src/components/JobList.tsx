@@ -1,11 +1,6 @@
-import { Job as Props} from "../App";
+import { Jobs as IProps } from "../App";
 import { Link } from 'react-router-dom'
 import JobCard from "./JobCard";
-
-// Type of props
-interface IProps {
-  jobs: Props[];
-}
 
 
 export default function JobList ({ jobs }: IProps) {
@@ -19,7 +14,7 @@ export default function JobList ({ jobs }: IProps) {
         return (
 
             // render link...
-            <Link className="w-[95%]" to={`${job.id}`}>
+            <Link key={job.id} className="w-[95%]" to={`${job.id}`}>
 
                 {/* to JobCard component */}
                 <JobCard key={job.id} job={job} />

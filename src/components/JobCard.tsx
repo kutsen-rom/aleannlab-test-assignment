@@ -1,13 +1,37 @@
-import { Job as Props } from "../App";
-import { useEffect, useState } from "react";
-
+import { Job } from "../App";
+import { useState, useEffect } from "react";
 
 // Type of props
 interface IProps {
-  job: Props;
+    job: Job;
 }
 
-const mapApiKey = process.env.REACT_APP_MAP_API_KEY;
+// Key for Google Static Map API
+export const mapApiKey = process.env.REACT_APP_MAP_API_KEY;
+
+
+/**
+   * Fetch address with Google Geocode API, with latitude and longitude,
+   * set address state to formatted_address
+   * @param setAddress function to set address state
+   * @param job object to get latitude and longitude
+   * @returns json with address in different formats
+   */
+ export async function getAddress(setAddress: React.Dispatch<React.SetStateAction<string[]>>, job: Job) {
+    try {
+      // Fetch address with latitude, longtitude and API Key
+      const result = await fetch(
+        `https://maps.googleapis.com/maps/api/geocode/json?latlng=${job.location.lat},${job.location.long}&key=${mapApiKey}`
+      );
+      const json = await result.json();
+      // Set address state to formatted_address
+      setAddress(json.results[0].formatted_address.split(','));
+      return json;
+    } catch (e) {
+      console.error(e);
+    }
+  }
+
 
 /**
  * Calculate difference in years (since API returns jobs posted years ago), between current year and year when job was posted
@@ -23,40 +47,23 @@ export function calculateDate (created: string) {
   return dateNow - dateCreatedAt;
 };
 
+
 export default function JobCard({ job }: IProps) {
+
+    /**
+     *  State of the address fetched from Google Geocode API
+     */
+    const [address, setAddress] = useState(['']);
+ 
     
-    // State of the address fetched from Google Geocode API
-    const [address, setAddress] = useState("");
-
-
   // Since rating is not provided in fetched data I'll just randomly get number of stars
   const rating = Math.ceil(Math.random() * 5);
 
-//   When component mounts call getAddress function once
+//   When component mounts call getAddress function once to setAddress of job object's latitude and longitude 
   useEffect(() => {
-    getAddress();
+    getAddress(setAddress, job);
   }, []);
 
-/**
-   * Fetch address with Google Geocode API,
-   * set address state to formatted_address
-   * @returns json with address in different formats
-   */
- async function getAddress() {
-    try {
-      // Fetch address with latitude, longtitude and API Key
-      const result = await fetch(
-        `https://maps.googleapis.com/maps/api/geocode/json?latlng=${job.location.lat},${job.location.long}&key=${mapApiKey}`
-      );
-      const json = await result.json();
-
-      // Set address state to formatted_address
-      setAddress(json.results[0].formatted_address);
-      return json;
-    } catch (e) {
-      console.error(e);
-    }
-  }
 
   return (
 
@@ -85,10 +92,11 @@ export default function JobCard({ job }: IProps) {
               {/* RATING'S STARS */}
               {/* Create an array with @rating number of elements and than fill it with any value (in this case number 1)
   and then iterate through it to render needed amount of stars*/}
-              {Array(rating).fill(1).map(() => (
+              {Array(rating).fill(1).map((el, index) => (
                 
                   // IMAGE: STAR
                   <img
+                    key={index}
                     alt="star"
                     className="mx-[0.5px] w-[10px] h-[10px]"
                     src="/images/star.svg"
@@ -120,12 +128,12 @@ export default function JobCard({ job }: IProps) {
 
             {/* ADDRESS */}
             <p className="text-muted ml-2 tracking-[0.23619px]">
+
             {/* CITY */}
-            {/* If length of splitted address string into array is more than 1 render this line */}
-            {/* It's just the case with random coordinates, with real one's wouldn't be such a problem */}
-            {address.split(",").length > 1 && `${address.split(",").reverse()[1].replace(/[0-9]/g, '')},`}
+            {/* If length of address array is more than 1, then reverse order of array elements and render second element which stands for city, else (e.g. if coordinates are random place in the ocean) render the only element from array (coordinates) */}
+            {address.length > 1 && `${address.reverse()[1].replace(/[0-9]/g, '')},`}
             {/* COUNTRY */}
-            {address.split(",").reverse()[0]}
+            {address[0]}
             </p>
           </div>
         </div>

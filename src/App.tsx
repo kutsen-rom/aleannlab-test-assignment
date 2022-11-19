@@ -6,8 +6,6 @@ import JobList from "./components/JobList";
 import DetailedJob from "./components/DetailedJob";
 
 
-
-
 // API URL
 const url =
   "https://api.json-generator.com/templates/ZM1r0eic3XEy/data?access_token=";
@@ -16,7 +14,7 @@ const url =
 const bearerToken = process.env.REACT_APP_BEARER_TOKEN;
 
 
-  // Type of job
+  // Type of single job
 export interface Job {
     id: string;
     name: string;
@@ -37,11 +35,16 @@ export interface Job {
     updatedAt: string;
 }
 
+// Type of array of jobs
+export interface Jobs {
+  jobs: Job[];
+}
+
 /**
- * Type for the state of app
+ * Type of the state of app
  */
 interface IState {
-  jobs: Job[]
+  jobs: Job[];
   error: boolean;
 }
 
@@ -58,7 +61,7 @@ export default function App() {
     * Create error state to manage error screen
     */
    const [error, setError] = useState<IState["error"]>(false);
- 
+
  
    /**
     * Fetch jobs list from provided URL and set is as a state, if failed set error state to true
@@ -116,6 +119,7 @@ export default function App() {
   return (
     <Routes>
           <Route path='/' element={<JobList jobs={jobs} />} />
+          <Route path='/:id' element={<DetailedJob jobs={jobs} />} />
     </Routes>
   );
 }

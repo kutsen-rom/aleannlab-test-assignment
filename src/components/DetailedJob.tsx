@@ -137,7 +137,7 @@ useEffect(() => {
                 {/* BUTTON: SAVE TO MY LIST */}
                 <button
                   onClick={() => console.log("Save to my list button")}
-                  className="flex items-center mr-2 tracking-[-0.5px] hover:bg-background rounded-md px-4 py-1 transition duration-75"
+                  className="flex items-center mr-2 tracking-[-0.5px] rounded-md px-4 py-2 transition duration-75 hover:bg-background active:bg-white focus:outline-brand focus:outline-offset-2"
                 >
     
                   {/* BUTTON IMAGE: STAR */}
@@ -148,7 +148,7 @@ useEffect(() => {
                 {/* BUTTON: SHARE */}
                 <button
                   onClick={() => console.log("Share button")}
-                  className="flex items-center tracking-[-0.5px] hover:bg-background rounded-md px-4 py-1 transition duration-75"
+                  className="flex items-center tracking-[-0.5px] rounded-md px-4 py-1 transition duration-75 hover:bg-background active:bg-white focus:outline-brand focus:outline-offset-2"
                 >
     
                   {/* BUTTON IMAGE: SHARE */}
@@ -162,7 +162,7 @@ useEffect(() => {
             <hr className="mb-6 hidden lg:block" />
     
             {/* BUTTON: APPLY NOW */}
-            <button className="hidden lg:block text-white bg-brand px-8 py-4 text-xs rounded-md font-light mt-9 hover:opacity-80 transition duration-75">
+            <button className="hidden lg:block text-white bg-brand px-8 py-4 text-xs rounded-md font-light mt-9 hover:opacity-80 transition duration-75 active:opacity-90 focus:outline-brand focus:outline-offset-2">
               APPLY NOW
             </button>
     
@@ -252,7 +252,7 @@ useEffect(() => {
             <div className="flex justify-center mt-6 lg:justify-start lg:mt-8">
     
               {/* BUTTON: APPLY NOW */}
-              <button className="text-white bg-brand px-8 py-4 text-xs rounded-md lg:font-light">
+              <button className="text-white bg-brand px-8 py-4 text-xs rounded-md lg:font-light hover:opacity-80 transition duration-75 active:opacity-90 focus:outline-brand focus:outline-offset-2">
                 APPLY NOW
               </button>
             </div>

@@ -20,6 +20,9 @@ module.exports = {
       },
       letterSpacing: {
         tighter: '-0.5625px'
+      },
+      outlineColor: {
+        brand: "var(--color-brand)",
       }
     },
   },

@@ -15,7 +15,7 @@ export default function JobList ({ jobs }: IProps) {
 
             <div className="w-full lg:flex lg:flex-col items-center lg:mt-5 ">
             {/* render link... */}
-            <Link key={job.id} className="w-full flex justify-center" to={`${job.id}`}>
+            <Link key={job.id} className="w-[95%] flex justify-center lg:w-[73%] " to={`${job.id}`}>
 
                 {/* to JobCard component */}
                 <JobCard key={job.id} job={job} />

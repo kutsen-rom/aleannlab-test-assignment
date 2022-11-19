@@ -13,12 +13,15 @@ export default function JobList ({ jobs }: IProps) {
       {jobs.map((job) => {
         return (
 
-            // render link...
-            <Link key={job.id} className="w-[95%]" to={`${job.id}`}>
+            <div className="w-full lg:flex lg:flex-col items-center lg:mt-5 ">
+            {/* render link... */}
+            <Link key={job.id} className="w-full flex justify-center" to={`${job.id}`}>
 
                 {/* to JobCard component */}
                 <JobCard key={job.id} job={job} />
             </Link>
+            </div>
+           
         )
       })}
     </div>

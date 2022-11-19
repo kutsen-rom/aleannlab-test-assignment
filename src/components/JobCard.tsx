@@ -20,7 +20,7 @@ export default function JobCard({ job }: IProps) {
   // Since rating is not provided in fetched data I'll just randomly get number of stars
   const rating = Math.ceil(Math.random() * 5);
 
-//   When component mounts call getAddress function once to setAddress of job object's latitude and longitude 
+//   When component mounts call getAddress function once to setAddress state to fetched address by job's latitude and longtitude  
   useEffect(() => {
     getAddress(setAddress, job);
   }, []);
@@ -29,7 +29,7 @@ export default function JobCard({ job }: IProps) {
   return (
 
     // MAIN CONTAINER: JOB CARD
-    <div className="w-full bg-background-job mt-2  shadow-[0px_1.5px_1px_rgb(170,170,170)] rounded-lg">
+    <div className="w-[95%] bg-background-job mt-2 shadow-[0px_1.5px_1px_rgb(170,170,170)] rounded-lg lg:w-[77%] lg:bg-white">
 
       {/* CONTAINER: IMAGE & INFO */}
       <div className="flex justify-around">

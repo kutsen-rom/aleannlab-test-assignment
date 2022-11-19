@@ -1,8 +1,7 @@
 import { Jobs as IProps } from "../App";
 import { useNavigate, useParams } from "react-router-dom";
-import { calculateDate, getAddress } from "./JobCard";
+import { calculateDate, getAddress, mapApiKey } from "./utilities";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { mapApiKey } from "./JobCard";
 import "swiper/css";
 import { useState, useEffect } from "react";
 import ErrorPage from "./ErrorPage";

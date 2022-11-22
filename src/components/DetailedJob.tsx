@@ -6,29 +6,28 @@ import "swiper/css";
 import { useState, useEffect } from "react";
 import ErrorPage from "./ErrorPage";
 
-
 // Map ID to render custom map style from Google Static Map API
 const mapId = process.env.REACT_APP_MAP_ID;
 
-export default function DetailedJob ({ jobs }: IProps) {
+export default function DetailedJob({ jobs }: IProps) {
 
-    /**
-     *  State of the address fetched from Google Geocode API
-     */
-    const [address, setAddress] = useState([""]);
+  /**
+   *  State of the address fetched from Google Geocode API
+   */
+  const [address, setAddress] = useState([""]);
 
   // Variable to get ID from URL
   const params = useParams();
 
   const navigate = useNavigate();
-  
+
   // Find job to show through array of jobs with job ID from current URL
   const job = jobs.find((job) => job.id === params.id);
 
-  //   When component mounts call getAddress function once to setAddress of job object's latitude and longitude 
-useEffect(() => {
+  //   When component mounts call getAddress function once to setAddress of job object's latitude and longitude
+  useEffect(() => {
     if (job) {
-        getAddress(setAddress, job);
+      getAddress(setAddress, job);
     }
   }, []);
 
@@ -36,7 +35,6 @@ useEffect(() => {
   if (!job) {
     return <ErrorPage />;
   }
-
 
   // Get description paragraph string from start of job.description article to Responsopilities header
   const description = job.description.split("Responsopilities:")[0];
@@ -57,398 +55,431 @@ useEffect(() => {
     // and remove last element from array because it's just a dot
     .slice(0, -1);
 
-// window.scroll(0, 0);
+  window.scroll(0, 0);
 
-    return (
-        // MAIN CONTAINER: JOB DETAILS PAGE
-        <div className="main-container-job-details-page flex justify-center mt-5 flex-row-reverse lg:mt-14">
-    
-          {/* LG: CONTAINER: CONTACTS & MAP */}
-          <div className="lg-container-contacts-and-map hidden lg:block ml-[8.5rem] h-[15.4%] overflow-hidden w-[21.1%] rounded-xl">
+  return (
+    // MAIN CONTAINER: JOB DETAILS PAGE
+    <div className="main-container-job-details-page flex justify-center mt-5 flex-row lg:mt-[3.25rem]">
+
+      {/** CONTAINER: ALL JOB DETAILS **/}
+      <div className="container-all-jobs-details w-[92%] lg:w-[38%] lg:ml-2">
+
+        {/** CONTAINER: JOB DETAILS & BUTTONS **/}
+        <div className="container-job-details-and-buttons lg:flex items-center justify-between">
+
+          {/* MAIN HEADER: JOB DETAILS */}
+          <h1 className="main-header-job-details text-brand text-left font-bold text-[1.75rem] pb-2 tracking-[0.413333px] lg:pb-1 lg:text-2xl xl:text-[1.75rem]">
+            Job Details
+          </h1>
+
+          {/* HORIZONTAL LINE */}
+          <hr className="mb-4 lg:hidden" />
+
+          {/** CONTAINER: BUTTONS **/}
+          <div className="container-buttons mt-1  my-6 flex lg:my-0 text-text lg:text-base xl:text-lg">
+
+            {/* BUTTON: SAVE TO MY LIST */}
+            <button
+              onClick={() => console.log("Save to my list button")}
+              className="button-save-to-my-list flex items-center mr-9 tracking-[-0.5px] rounded-md py-2 transition duration-75 hover:bg-background active:bg-white focus:outline-brand focus:outline-offset-2 lg:mr-2 lg:px-3 xl:px-4"
+            >
+
+              {/* BUTTON IMAGE: STAR */}
+              <div className="button-image-star w-5 mr-3 h-5 bg-[url('../public/images/star-button.svg')] bg-no-repeat lg:bg-[url('../public/images/save-button.svg')] lg:w-6 lg:h-6"></div>
+              Save to my list
+            </button>
+
+            {/* BUTTON: SHARE */}
+            <button
+              onClick={() => console.log("Share button")}
+              className="button-share flex items-center tracking-[-0.5px] rounded-md py-1 transition duration-75 hover:bg-background active:bg-white focus:outline-brand focus:outline-offset-2 lg:px-3 xl:px-4"
+            >
+
+              {/* BUTTON IMAGE: SHARE */}
+              <img
+                src="/images/share-button.svg"
+                className="button-image-share w-4 mr-3 lg:mr-2 lg:w-5"
+              />
+              Share
+            </button>
+          </div>
+        </div>
+
+        {/* LG: HORIZONTAL LINE */}
+        <hr className="mb-6 mt-1 hidden lg:block" />
+
+        {/* LG: CONTAINER: BUTTON APPLY NOW & LG-ONLY: SALARY */}
+        <div className="lg-container-button-apply-now-and-lg-only-salary flex justify-between">
+
+          {/* LG: BUTTON: APPLY NOW */}
+          <button className="lg-button-apply-now hidden lg:block text-white bg-brand px-[1.95rem] py-4 text-xs rounded-md font-light mt-4 hover:opacity-80 transition duration-75 active:opacity-90 focus:outline-brand focus:outline-offset-2">
+            APPLY NOW
+          </button>
+
+          {/* LG-ONLY: CONTAINER: SALARY*/}
+          <div className="lg-only-container-salary hidden lg:flex lg:flex-col-reverse xl:hidden">
             
+            {/* LG: LINE: BRUTTO */}
+            <p className="lg-line-brutto text-text text-lg tracking-tighter text-right mt-1 lg:mt-0 lg:text-left">
+              Brutto, per year
+            </p>
+
+            {/* LG: LINE: SALARY RANGE */}
+            <h3 className="lg-line-salary-range text-brand font-bold text-xl text-right mb-3 tracking-[-0.625px] lg:mb-0">
+              € {job.salary.replace(/-/, "—").replace(/k/gi, " 000")}
+            </h3>
+          </div>
+        </div>
+
+        {/* CONTAINER: JOB TITLE & (POSTED & SALARY) */}
+        <div className="line-job-title -mt-8 lg:flex items-start justify-between lg:mt-9">
+
+        {/* LINE: JOB TITLE */}
+          <h2 className="line-job-title text-brand font-bold text-2xl leading-[1.875rem] tracking-[-0.75px] mt-8 lg:-mt-1 xl:w-[65%] lg:text-[1.375rem] xl:text-2xl ">
+            {job.title}
+          </h2>
+
+          {/* CONTAINER: POSTED & SALARY */}
+          <div className="container-posted-and-salary flex justify-between items-center">
+
+            {/* LINE: POSTED */}
+            <p className="line-posted text-[0.8125rem] font-light text-[#0304079a] lg:hidden">
+              Posted {calculateDate(job.createdAt)} years ago
+            </p>
+
+            {/* CONTAINER: SALARY */}
+            <div className="container-salary lg:hidden xl:flex xl:flex-col-reverse xl:mr-3">
+
+              {/* LINE: BRUTTO */}
+              <p className="line-brutto text-text text-lg tracking-tighter text-right mt-1 xl:-mt-[0.375rem] xl:text-left">
+                Brutto, per year
+              </p>
+
+              {/* LINE: SALARY RANGE */}
+              <h3 className="line-salary-range text-brand font-bold text-xl text-right mb-3 tracking-[-0.625px] xl:mb-0">
+                € {job.salary.replace(/-/, "—").replace(/k/gi, " 000")}
+              </h3>
+            </div>
+          </div>
+        </div>
+
+        {/* LG: POSTED */}
+        <p className="lg-line-posted hidden lg:block text-lg font-light text-[rgba(56,_65,_93,_0.355988)] tracking-[0.5625px] mt-2 mb-1">
+          Posted {calculateDate(job.createdAt)} years ago
+        </p>
+
+        {/* PARAGRAPH: DESCRIPTION */}
+        <p className="paragraph-description text-paragraph text-lg leading-6 tracking-tighter">
+          {description}
+        </p>
+
+        {/* LINE: RESPONSOPILITIES */}
+        <h4 className="line-responsopilities text-brand font-bold mt-10 mb-1 text-xl tracking-[-0.625px] lg:mt-8">
+          Responsopilities
+        </h4>
+
+        {/* PARAGRAPH: RESPONSOPILITIES */}
+        <p className="paragraph-responsopilities text-paragraph text-lg leading-6 tracking-tighter lg:mt-2">
+          {responsopilities}
+        </p>
+
+        {/* LINE: COMPENSATION & BENEFITS */}
+        <h4 className="line-compensation-and-benefits text-brand font-bold mt-4 mb-7 text-xl tracking-[-0.625px] lg:mt-9 lg:mb-2">
+          Compensation & Benefits:
+        </h4>
+
+        {/* LINE: FIRST SENTENCE OF COMPENSATION & BENEFITS */}
+        <p className="line-first-sentence-of-compensation-and-benefits text-paragraph text-lg leading-6 tracking-tighter">
+          {benefits[0]}:
+        </p>
+
+        {/* LIST: COMPENSATION & BENEFITS */}
+        <ul>
+          {/* For every item in benefits array... */}
+          {benefits.map((benefit, index) => {
+            // except the first one, that is already used above as a first sentence...
+            if (index !== 0) {
+              // render a list item with
+              return (
+                // CONTAINER: LIST ITEM
+                <div key={index} className="flex ">
+                  {/* LIST ITEM: BULLET POINT */}
+                  <li className="text-[rgba(56,_69,_100,_0.632594)] text-2xl list-[square] list-inside ml-[0.09375rem] lg:list-outside lg:leading-6"></li>
+                  {/* LIST ITEM: TEXT */}
+                  <span className="text-paragraph text-lg leading-6 tracking-tighter pl-0">
+                    {benefit}.
+                  </span>
+                </div>
+              );
+            }
+          })}
+        </ul>
+
+        {/* CONTAINER: BUTTON */}
+        <div className="container-button flex justify-center mt-6 lg:justify-start lg:mt-9">
+
+          {/* BUTTON: APPLY NOW */}
+          <button className="text-white bg-brand px-8 py-4 text-xs rounded-md lg:font-light hover:opacity-80 transition duration-75 active:opacity-90 focus:outline-brand focus:outline-offset-2">
+            APPLY NOW
+          </button>
+        </div>
+
+        {/* CONTAINER: ATTACHED IMAGES & ADDITIONAL INFO */}
+        <div className="container-attached-images-and-additional-info lg:flex flex-col-reverse">
+
+          {/** SECTION: ATTACHED IMAGES **/}
+          <section className="section-attached-images">
+
+            {/* HEADER: ATTACHED IMAGES */}
+            <h2 className="header-attached-images text-brand font-bold text-[1.75rem] tracking-[0.413333px] mt-[8.3rem] lg:mt-20">
+              Attached images
+            </h2>
+
+            {/* HORIZONTAL LINE */}
+            <hr className="mt-1 mb-6 lg:mb-5" />
+
+            {/* CONTAINER: IMAGES */}
+            <div className="container-images w-full overflow-hidden">
+
+              {/* CONTAINER: IMAGES (SWIPER REACT COMPONENT) */}
+              <Swiper
+                slidesPerView={1.8}
+                breakpoints={{
+                  768: {
+                    slidesPerView: 3,
+                    width: 628,
+                  },
+                  1366: {
+                    slidesPerView: 3,
+                    width: 550,
+                  },
+                  1568: {
+                    slidesPerView: 3,
+                    width: 628,
+                  },
+                  1728: {
+                    slidesPerView: 3,
+                    width: 628,
+                  },
+                }}
+                spaceBetween={10}
+                className="lg:w-[768px]"
+              >
+
+                {/* For every image in job.pictures... */}
+                {job.pictures.map((picture, index) => {
+                  // render SwiperSlide component
+                  return (
+                    <SwiperSlide key={index}>
+                      {/* IMAGE */}
+                      <img
+                        className="object-cover object-bottom w-full h-[7.1875rem] rounded-lg sm:h-40 md:h-[7.1875rem]"
+                        src={picture}
+                      />
+                    </SwiperSlide>
+                  );
+                })}
+              </Swiper>
+            </div>
+          </section>
+
+          {/** SECTION: ADDITIONAL INFO **/}
+          <section className="section-additional-info">
+
+            {/* HEADER: ADDITIONAL INFO */}
+            <h2 className="header-additional-info text-brand font-bold text-[1.75rem] tracking-[0.413333px] mt-14 lg:mt-[5.25rem]">
+              Additional info
+            </h2>
+
+            {/* HORIZONTAL LINE */}
+            <hr className="mt-1 mb-4 w-[81%]" />
+
+            {/* LINE: EMPLOYMENT TYPE */}
+            <h3 className="line-employment-type text-text text-lg mb-2 tracking-tighter">
+              Employment type
+            </h3>
+
+            {/* CONTAINER: ALL EMPLOYMENT TYPES */}
+            <div className="container-all-employment-types flex">
+
+              {/* For every employment type */}
+              {job.employment_type.map((type) => {
+                return (
+                  // CONTAINER: SINGLE EMPLOYMENT TYPE
+                  <div className="container-single-employment-type bg-[#E1E6F4] w-1/3 mr-[2%] py-3 border border-[#A7AFC5] rounded-lg">
+                    {/* LINE: SINGLE EMPLOYMENT TYPE */}
+                    <h4 className="line-employment-type ml-[32%] text-[#55699E] font-bold tracking-[-0.457143px]">
+                      {type}
+                    </h4>
+                  </div>
+                );
+              })}
+            </div>
+
+            {/* LINE: BENEFITS */}
+            <h3 className="line-benefits text-text text-lg mb-2 mt-5 tracking-tighter">
+              Benefits
+            </h3>
+
+            {/* CONTAINER: ALL BENEFITS */}
+            <div className="container-all-benefits flex">
+
+              {/* For every benefit */}
+              {job.benefits.map((benefit) => {
+                return (
+                  // CONTAINER: SINGLE BENEFIT
+                  <div className="container-single-benefit bg-[#FFF8D9] w-1/3 text-right mr-2 py-3 border border-[#FFCF00] rounded-lg">
+                    {/* LINE: SINGLE BENEFIT */}
+                    <h4 className="line-single-benefit text-[#988B49] font-bold tracking-[-0.4px] text-center">
+                      {benefit}
+                    </h4>
+                  </div>
+                );
+              })}
+            </div>
+          </section>
+        </div>
+
+        {/**  SECTION: CONTACTS  **/}
+        <section className="section-contacts lg:hidden">
+
+          {/* HEADER: CONTACTS */}
+          <h2 className="header-contacts text-brand font-bold text-[1.75rem] tracking-[0.413333px] mt-[15.5%]">
+            Contacts
+          </h2>
+
+          {/* HORIZONTAL LINE */}
+          <hr className="mt-2 mb-5" />
+
+          {/* CONTAINER: CONTACTS & MAP*/}
+          <div className="container-contacts-and-map w-[97.5%] ml-[0.4375rem] h-[25.7rem] rounded-lg overflow-hidden max-w-[50rem] mb-9 sm:h-[33rem] md:h-[36rem]">
+
             {/* CONTAINER: CONTACTS */}
-            <div className="container-contacts bg-[#2A3047] text-[#E7EAF0] pl-[16.8%] lg:pl-[15.6%] relative overflow-hidden z-0">
-    
-              {/* LG: CONTACTS BACKGROUND CIRCLE */}
-              <div className="lg-contacts-background-circle bg-[#202336] w-72 h-64 absolute left-[-5.5rem] rounded-full -z-10 hidden lg:block"></div>
-    
-              {/* LINE: DEPARTMENT NAME FIRST LINE */}
-              <h3 className="line-department-name tracking-[0.23619px] font-semibold pt-8 leading-[1.1875rem] lg:text-xl lg:leading-[1.5625rem] lg:tracking-[-0.625px] lg:font-medium">
+            <div className="container-contacts bg-[#2A3047] text-[#E7EAF0] pl-[3.88rem]">
+
+              {/* LINE: DEPARTMENT NAME */}
+              <h3 className="line-department-name tracking-[0.23619px] font-semibold pt-8 leading-[1.1875rem] sm:text-lg md:text-xl">
                 Department name.
-    
+
                 {/* LINE BREAK */}
                 <br />
-    
+
                 {/* LINE: DEPARTMENT NAME SECOND LINE */}
                 {job.name}.
               </h3>
-    
+
               {/* LINE: ADDRESS */}
-              <p className="line-address flex tracking-[0.5px] mt-4 text-[0.9375rem] font-thin lg:text-lg lg:leading-[1.5rem] lg:tracking-tighter lg:mt-2">
-    
+              <p className="line-address flex tracking-[0.5px] mt-4 text-[0.9375rem] font-thin sm:text-base md:text-lg">
+
                 {/* IMAGE: GEO MARKER */}
-                <img src="/images/geo.svg" className="w-3 mr-2 lg:w-[0.875rem]" />
-    
+                <img src="/images/geo.svg" className="image-geo-marker w-3 mr-2 " />
+
                 {/* ADDRESS TEXT */}
                 {/* If address has more than 1 element in array delete last element (which stands for country with real coordinates) then reverse order of elements and join them to string and separate with commas  */}
-                {address.length > 1 ? address.slice(0, -1).reverse().join(", ") : address}
-            </p>
-    
-              {/** PARAGRAPH: PHONE NUMBER & EMAIL **/}
-              {/* LINE: PHONE NUMBER */}
-              <p className="paragraph-phone-number-and-email text-[rgba(255,_255,_255,_0.669635)] font-thin tracking-[0.5px] pt-2 pb-[10%] text-[0.9375rem] lg:text-[#E7EAF0] lg:tracking-tighter lg:text-lg lg:leading-[1.5rem]">
+                {address.length > 1
+                  ? address.slice(0, -1).reverse().join(", ")
+                  : address}
+              </p>
+
+              {/* LINES: PHONE NUMBER & EMAIL */}
+              <p className="lines-phone-number-and-email text-[rgba(255,_255,_255,_0.669635)] font-thin tracking-[0.5px] pt-2 pb-[10%] text-[0.9375rem] sm:text-base md:text-lg">
+
+                {/* LINE: PHONE NUMBER */}
                 {job.phone},
-    
+                
                 {/* LINE BREAK */}
                 <br />
-    
+
                 {/* LINE: EMAIL */}
                 {job.email}
               </p>
             </div>
-    
+
             {/* CONTAINER: MAP */}
-            <div className="container-map w-full h-80 overflow-hidden lg:h-[14.5rem]">
-    
+            <div className="container-map w-full h-80 overflow-hidden">
+
               {/* MAP */}
               <img
+                className="map"
                 src={`https://maps.googleapis.com/maps/api/staticmap?center=48.2172,16.3551&markers=icon:http://s.gravatar.com/avatar/3cf9510534e7d5dcbc2fdb25c7b6d8fb?s=38%26d=identicon%26r=PG%7C48.2206,16.3468&zoom=14&size=400x300&scale=2&key=${mapApiKey}&map_id=${mapId}`}
               />
             </div>
           </div>
-    
-          {/** CONTAINER: ALL JOB DETAILS **/}
-          <div className="container-all-jobs-details w-[92%] lg:w-[38%] lg:ml-6">
-    
-            {/** CONTAINER: JOB DETAILS & BUTTONS **/}
-            <div className="container-job-details-and-buttons lg:flex items-center justify-between">
-    
-              {/* MAIN HEADER: JOB DETAILS */}
-              <h1 className="main-header-job-details text-brand text-left font-bold text-[1.75rem] pb-2 tracking-[0.413333px] lg:pb-1">
-                Job Details
-              </h1>
-    
-              {/* HORIZONTAL LINE */}
-              <hr className="mt-1 mb-6 lg:hidden" />
-    
-              {/** CONTAINER: BUTTONS **/}
-              <div className="container-buttons my-6 flex lg:my-0 text-text lg:text-lg">
-    
-                {/* BUTTON: SAVE TO MY LIST */}
-                <button
-                  onClick={() => console.log("Save to my list button")}
-                  className="flex items-center mr-2 tracking-[-0.5px] rounded-md px-4 py-2 transition duration-75 hover:bg-background active:bg-white focus:outline-brand focus:outline-offset-2"
-                >
-    
-                  {/* BUTTON IMAGE: STAR */}
-                  <div className="w-5 mr-3 h-5 bg-[url('../public/images/star-button.svg')] bg-no-repeat lg:bg-[url('../public/images/save-button.svg')] lg:w-6 lg:h-6"></div>
-                  Save to my list
-                </button>
-    
-                {/* BUTTON: SHARE */}
-                <button
-                  onClick={() => console.log("Share button")}
-                  className="flex items-center tracking-[-0.5px] rounded-md px-4 py-1 transition duration-75 hover:bg-background active:bg-white focus:outline-brand focus:outline-offset-2"
-                >
-    
-                  {/* BUTTON IMAGE: SHARE */}
-                  <img src="/images/share-button.svg" className="w-4 mr-2 lg:w-5" />
-                  Share
-                </button>
-              </div>
-            </div>
-    
-            {/* LG: HORIZONTAL LINE */}
-            <hr className="mb-6 hidden lg:block" />
-    
-            {/* LG: BUTTON: APPLY NOW */}
-            <button className="lg-button-apply-now hidden lg:block text-white bg-brand px-8 py-4 text-xs rounded-md font-light mt-9 hover:opacity-80 transition duration-75 active:opacity-90 focus:outline-brand focus:outline-offset-2">
-              APPLY NOW
-            </button>
-    
-            {/* LINE: JOB TITLE */}
-            <div className="line-job-title lg:flex items-start justify-between lg:mt-9">
-              <h2 className="text-brand font-bold text-2xl leading-[1.875rem] tracking-[-0.75px] mt-8 lg:mt-0 lg:w-[65%] ">
-                {job.title}
-              </h2>
-    
-              {/* CONTAINER: POSTED & SALARY */}
-              <div className="container-posted-and-salary flex justify-between items-center">
-    
-                {/* LINE: POSTED */}
-                <p className="line-posted text-xs font-light text-[#0304079a] lg:hidden">
-                  Posted {calculateDate(job.createdAt)} years ago
-                </p>
-    
-                {/* CONTAINER: SALARY*/}
-                <div className="container-salary lg:flex lg:flex-col-reverse">
-    
-                  {/* LINE: BRUTTO */}
-                  <p className="line-brutto text-text text-lg tracking-tighter text-right mt-1 lg:mt-0 lg:text-left">
-                    Brutto, per year
-                  </p>
-    
-                  {/* LINE: SALARY RANGE */}
-                  <h3 className="line-salary-range text-brand font-bold text-xl text-right mb-3 tracking-[-0.625px] lg:mb-0">
-                    € {job.salary.replace(/-/, "—").replace(/k/gi, " 000")}
-                  </h3>
-                </div>
-              </div>
-            </div>
-    
-            {/* LG: POSTED */}
-            <p className="lg-line-posted hidden lg:block text-lg font-light text-[rgba(56,_65,_93,_0.355988)] tracking-[0.5625px] mt-2 mb-1">
-              Posted {calculateDate(job.createdAt)} years ago
-            </p>
-    
-            {/* PARAGRAPH: DESCRIPTION */}
-            <p className="paragraph-description text-paragraph text-lg leading-6 tracking-tighter">
-              {description}
-            </p>
-    
-            {/* LINE: RESPONSOPILITIES */}
-            <h4 className="line-responsopilities text-brand font-bold mt-10 mb-1 text-xl tracking-[-0.625px] lg:mt-9">
-              Responsopilities
-            </h4>
-    
-            {/* PARAGRAPH: RESPONSOPILITIES */}
-            <p className="paragraph-responsopilities text-paragraph text-lg leading-6 tracking-tighter">
-              {responsopilities}
-            </p>
-    
-            {/* LINE: COMPENSATION & BENEFITS */}
-            <h4 className="line-compensation-and-benefits text-brand font-bold mt-4 mb-7 text-xl tracking-[-0.625px] lg:mt-9 lg:mb-2">
-              Compensation & Benefits:
-            </h4>
-    
-            {/* LINE: FIRST SENTENCE OF COMPENSATION & BENEFITS */}
-            <p className="line-first-sentence-of-compensation-and-benefits text-paragraph text-lg leading-6 tracking-tighter">
-              {benefits[0]}:
-            </p>
-    
-            {/* LIST: COMPENSATION & BENEFITS */}
-            <ul>
-              {/* For every item in benefits array... */}
-              {benefits.map((benefit, index) => {
-                // except the first one, that is already used...
-                if (index !== 0) {
-                  // render a list item
-                  return (
-                    // CONTAINER: LIST ITEM
-                    <div key={index} className="flex ">
-                      {/* LIST ITEM: BULLET POINT */}
-                      <li className="text-[rgba(56,_69,_100,_0.632594)] text-2xl list-[square] list-inside ml-[0.09375rem] lg:list-outside lg:leading-6"></li>
-                      {/* LIST ITEM: TEXT */}
-                      <span className="text-paragraph text-lg leading-6 tracking-tighter pl-0">
-                        {benefit}.
-                      </span>
-                    </div>
-                  );
-                }
-              })}
-            </ul>
-    
-            {/* CONTAINER: BUTTON */}
-            <div className="container-button flex justify-center mt-6 lg:justify-start lg:mt-8">
-    
-              {/* BUTTON: APPLY NOW */}
-              <button className="text-white bg-brand px-8 py-4 text-xs rounded-md lg:font-light hover:opacity-80 transition duration-75 active:opacity-90 focus:outline-brand focus:outline-offset-2">
-                APPLY NOW
-              </button>
-            </div>
-    
-            {/* CONTAINER: ATTACHED IMAGES & ADDITIONAL INFO */}
-            <div className="container-attached-images-and-additional-info lg:flex flex-col-reverse">
-    
-    
-              {/** SECTION: ATTACHED IMAGES **/}
-              <div>
-    
-                {/* HEADER: ATTACHED IMAGES */}
-                <h2 className="text-brand font-bold text-[1.75rem] tracking-[0.413333px] mt-[34.5%] lg:mt-20">
-                  Attached images
-                </h2>
-    
-                {/* HORIZONTAL LINE */}
-                <hr className="mt-1 mb-6 lg:mb-5" />
-    
-                {/* CONTAINER: IMAGES */}
-                <div className="container-images w-full overflow-hidden">
-    
-                  {/* CONTAINER: IMAGES (SWIPER REACT COMPONENT) */}
-                  <Swiper
-                    slidesPerView={1.8}
-                    breakpoints={{
-                      768: {
-                        slidesPerView: 3,
-                        width: 628,
-                      },
-                      1366: {
-                        slidesPerView: 3,
-                        width: 550,
-                      },
-                      1568: {
-                        slidesPerView: 3,
-                        width: 628,
-                      },
-                      1728: {
-                        slidesPerView: 3,
-                        width: 628,
-                      },
-                    }}
-                    spaceBetween={10}
-                    className="lg:w-[768px]"
-                  >
-    
-                    {/* For every image in job.pictures... */}
-                    {job.pictures.map((picture, index) => {
-                      // render SwiperSlide component
-                      return (
-                        <SwiperSlide key={index}>
-                          {/* IMAGE */}
-                          <img
-                            className="object-cover object-bottom w-full h-[7.1875rem] rounded-lg"
-                            src={picture}
-                          />
-                        </SwiperSlide>
-                      );
-                    })}
-                  </Swiper>
-                </div>
-              </div>
-    
-              {/** SECTION: ADDITIONAL INFO **/}
-              <div>
-    
-                {/* HEADER: ADDITIONAL INFO */}
-                <h2 className="text-brand font-bold text-[1.75rem] tracking-[0.413333px] mt-[15.5%]">
-                  Additional info
-                </h2>
-    
-                {/* HORIZONTAL LINE */}
-                <hr className="mt-1 mb-4 w-[81%]" />
-    
-                {/* LINE: EMPLOYMENT TYPE */}
-                <h3 className="text-text text-lg mb-2 tracking-tighter">
-                  Employment type
-                </h3>
-    
-                {/* CONTAINER: ALL EMPLOYMENT TYPES */}
-                <div className="flex">
-    
-                  {/* For every employment type */}
-                  {job.employment_type.map((type) => {
-                    return (
-                      // CONTAINER: SINGLE EMPLOYMENT TYPE
-                      <div className="container-single-employment-type bg-[#E1E6F4] w-1/3 mr-[2%] py-3 border border-[#A7AFC5] rounded-lg">
-                        {/* LINE: SINGLE EMPLOYMENT TYPE */}
-                        <h4 className="ml-[32%] text-[#55699E] font-bold tracking-[-0.457143px]">
-                          {type}
-                        </h4>
-                      </div>
-                    );
-                  })}
-                </div>
-    
-                {/* LINE: BENEFITS */}
-                <h3 className="text-text text-lg mb-2 mt-5 tracking-tighter">
-                  Benefits
-                </h3>
-    
-                {/* CONTAINER: ALL BENEFITS */}
-                <div className="all-benefits flex">
-    
-                  {/* For every benefit */}
-                  {job.benefits.map((benefit) => {
-                    return (
-                      // CONTAINER: SINGLE BENEFIT
-                      <div className="single-benefit bg-[#FFF8D9] w-1/3 text-right mr-2 py-3 border border-[#FFCF00] rounded-lg">
-                        {/* LINE: SINGLE BENEFIT */}
-                        <h4 className="text-[#988B49] font-bold tracking-[-0.4px] text-center">
-                          {benefit}
-                        </h4>
-                      </div>
-                    );
-                  })}
-                </div>
-              </div>
-            </div>
-    
-            {/**  SECTION: CONTACTS  **/}
-            <div className="section-contacts lg:hidden">
-    
-              {/* HEADER: CONTACTS */}
-              <h2 className="text-brand font-bold text-[1.75rem] tracking-[0.413333px] mt-[15.5%]">
-                Contacts
-              </h2>
-    
-              {/* HORIZONTAL LINE */}
-              <hr className="mt-1 mb-6" />
-    
-              {/* CONTAINER: CONTACTS & MAP*/}
-              <div className="container-contacts-and-map w-[97.5%] ml-[0.4375rem] h-[15.4%] rounded-lg overflow-hidden">
-    
-                {/* CONTAINER: CONTACTS */}
-                <div className="container-contacts bg-[#2A3047] text-[#E7EAF0] pl-[16.8%]">
-    
-                  {/* LINE: DEPARTMENT NAME FIRST LINE */}
-                  <h3 className="tracking-[0.23619px] font-semibold pt-8 leading-[1.1875rem]">
-                    Department name.
-    
-                    {/* LINE BREAK */}
-                    <br />
-    
-                    {/* LINE: DEPARTMENT NAME SECOND LINE */}
-                    {job.name}.
-                  </h3>
-    
-                  {/* LINE: ADDRESS */}
-                  <p className="flex tracking-[0.5px] mt-4 text-[0.9375rem] font-thin">
-    
-                    {/* IMAGE: GEO MARKER */}
-                    <img src="/images/geo.svg" className="w-3 mr-2 " />
-    
-                    {/* ADDRESS TEXT */}
-                    {/* If address has more than 1 element in array delete last element (which stands for country with real coordinates) then reverse order of elements and join them to string and separate with commas  */}
-                    {address.length > 1 ? address.slice(0, -1).reverse().join(", ") : address}
-                </p>
-    
-                  {/* LINE: PHONE NUMBER */}
-                  <p className="text-[rgba(255,_255,_255,_0.669635)] font-thin tracking-[0.5px] pt-2 pb-[10%] text-[0.9375rem]">
-                    {job.phone},
-                    
-                    {/* LINE BREAK */}
-                    <br />
-    
-                    {/* LINE: EMAIL */}
-                    {job.email}
-                  </p>
-                </div>
-    
-                {/* CONTAINER: MAP */}
-                <div className="container-map w-full h-80 overflow-hidden">
-    
-                  {/* MAP */}
-                  <img
-                    className=""
-                    src={`https://maps.googleapis.com/maps/api/staticmap?center=48.2172,16.3551&markers=icon:http://s.gravatar.com/avatar/3cf9510534e7d5dcbc2fdb25c7b6d8fb?s=38%26d=identicon%26r=PG%7C48.2206,16.3468&zoom=14&size=400x300&scale=2&key=${mapApiKey}&map_id=${mapId}`}
-                  />
-                </div>
-              </div>
-            </div>
-    
-            {/* LG: CONTAINER: BUTTON, RETURN TO JOB BOARD */}
-            <div className="lg-container-return-to-job-board-button relative mt-24 pb-52 hidden lg:block">
-    
-              {/* BUTTON: RETURN TO JOB BOARD */}
-              <button onClick={() => navigate('/')} className="absolute -left-[5.5rem] text-brand bg-gray-200 rounded-lg flex px-6 py-3 font-semibold text-xs items-center hover:bg-gray-300 transition duration-75">
-    
-                {/* IMAGE: LEFT (CHEVRON) ARROW */}
-                <img src="/images/left-arrow.svg" className="w-2 h-6 mr-6" />
-                RETURN TO JOB BOARD
-              </button>
-            </div>
-          </div>
+        </section>
+
+        {/* LG: CONTAINER: BUTTON, RETURN TO JOB BOARD */}
+        <div className="lg-container-return-to-job-board-button relative mt-24 pb-52 hidden lg:block">
+
+          {/* BUTTON: RETURN TO JOB BOARD */}
+          <button
+            onClick={() => navigate("/")}
+            className="button-return-to-job-board absolute -left-[5.5rem] text-brand bg-gray-200 rounded-lg flex px-6 py-3 font-semibold text-xs items-center hover:bg-gray-300 transition duration-75"
+          >
+
+            {/* IMAGE: LEFT (CHEVRON) ARROW */}
+            <img src="/images/left-arrow.svg" className="image-left-chevron-arrow w-2 h-6 mr-6" />
+            RETURN TO JOB BOARD
+          </button>
+
         </div>
-      );
-};
+      </div>
+
+      {/* LG: CONTAINER: CONTACTS & MAP */}
+      <div className="hidden lg:block lg-container-contacts-and-map ml-[7.4rem] mt-1 h-[25.7rem] overflow-hidden rounded-xl lg:w-[25%] xl:w-[21.1%]">
+
+        {/* LG: CONTAINER: CONTACTS */}
+        <div className="lg-container-contacts bg-[#2A3047] text-[#E7EAF0] lg:pl-[2rem] xl:pl-[3.95rem] relative overflow-hidden z-0">
+
+          {/* LG: CONTACTS BACKGROUND CIRCLE */}
+          <div className="lg-contacts-background-circle bg-[#202336] w-72 h-64 absolute left-[-5.5rem] rounded-full -z-10 hidden lg:block"></div>
+
+          {/* LG: LINE: DEPARTMENT NAME FIRST LINE */}
+          <h3 className="lg-line-department-name tracking-[0.23619px] font-semibold pt-8 leading-[1.1875rem] lg:text-xl lg:leading-[1.5625rem] lg:tracking-[-0.625px] lg:font-medium">
+            Department name.
+
+            {/* LG: LINE BREAK */}
+            <br />
+
+            {/* LG: LINE: DEPARTMENT NAME SECOND LINE */}
+            {job.name}.
+          </h3>
+
+          {/* LG: LINE: ADDRESS */}
+          <p className="lg-line-address flex tracking-[0.5px] mt-4 text-[0.9375rem] font-thin lg:text-lg lg:leading-[1.5rem] lg:tracking-tighter lg:mt-2">
+
+            {/* LG: IMAGE: GEO MARKER */}
+            <img src="/images/geo.svg" className="lg-image-geo-marker w-3 mr-2 lg:w-[0.875rem]" />
+
+            {/* LG: ADDRESS TEXT */}
+            {/* If address has more than 1 element in array delete last element (which stands for country with real coordinates) then reverse order of elements and join them to string and separate with commas  */}
+            {address.length > 1
+              ? address.slice(0, -1).reverse().join(", ")
+              : address}
+          </p>
+
+          {/** LG: PARAGRAPH: PHONE NUMBER & EMAIL **/}
+          {/* LG: LINE: PHONE NUMBER */}
+          <p className="lg-paragraph-phone-number-and-email text-[rgba(255,_255,_255,_0.669635)] font-thin tracking-[0.5px] pt-2 pb-[10%] text-[0.9375rem] lg:text-[#E7EAF0] lg:tracking-tighter lg:text-lg lg:leading-[1.5rem]">
+            {job.phone},
+            
+            {/* LG: LINE BREAK */}
+            <br />
+
+            {/* LG: LINE: EMAIL */}
+            {job.email}
+          </p>
+        </div>
+
+        {/* LG: CONTAINER: MAP */}
+        <div className="lg-container-map w-full h-80 overflow-hidden lg:h-[14.5rem]">
+
+          {/* LG: MAP */}
+          <img
+            className="lg-map w-full h-full object-cover xl:object-fit"
+            src={`https://maps.googleapis.com/maps/api/staticmap?center=48.2190,16.3558&markers=icon:http://s.gravatar.com/avatar/3cf9510534e7d5dcbc2fdb25c7b6d8fb?s=38%26d=identicon%26r=PG%7C48.2206,16.3468&zoom=14&size=400x300&scale=2&key=${mapApiKey}&map_id=${mapId}`}
+          />
+        </div>
+      </div>
+    </div>
+  );
+}

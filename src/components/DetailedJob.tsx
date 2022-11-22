@@ -57,18 +57,20 @@ useEffect(() => {
     // and remove last element from array because it's just a dot
     .slice(0, -1);
 
+// window.scroll(0, 0);
+
     return (
         // MAIN CONTAINER: JOB DETAILS PAGE
         <div className="main-container-job-details-page flex justify-center mt-5 flex-row-reverse lg:mt-14">
     
           {/* LG: CONTAINER: CONTACTS & MAP */}
-          <div className="container-contacts-and-map hidden lg:block ml-[8.5rem] h-[15.4%] overflow-hidden w-[21.1%] rounded-xl">
+          <div className="lg-container-contacts-and-map hidden lg:block ml-[8.5rem] h-[15.4%] overflow-hidden w-[21.1%] rounded-xl">
             
             {/* CONTAINER: CONTACTS */}
             <div className="container-contacts bg-[#2A3047] text-[#E7EAF0] pl-[16.8%] lg:pl-[15.6%] relative overflow-hidden z-0">
     
               {/* LG: CONTACTS BACKGROUND CIRCLE */}
-              <div className="contacts-background-circle bg-[#202336] w-72 h-64 absolute left-[-5.5rem] rounded-full -z-10 hidden lg:block"></div>
+              <div className="lg-contacts-background-circle bg-[#202336] w-72 h-64 absolute left-[-5.5rem] rounded-full -z-10 hidden lg:block"></div>
     
               {/* LINE: DEPARTMENT NAME FIRST LINE */}
               <h3 className="line-department-name tracking-[0.23619px] font-semibold pt-8 leading-[1.1875rem] lg:text-xl lg:leading-[1.5625rem] lg:tracking-[-0.625px] lg:font-medium">
@@ -110,7 +112,6 @@ useEffect(() => {
     
               {/* MAP */}
               <img
-                className=""
                 src={`https://maps.googleapis.com/maps/api/staticmap?center=48.2172,16.3551&markers=icon:http://s.gravatar.com/avatar/3cf9510534e7d5dcbc2fdb25c7b6d8fb?s=38%26d=identicon%26r=PG%7C48.2206,16.3468&zoom=14&size=400x300&scale=2&key=${mapApiKey}&map_id=${mapId}`}
               />
             </div>
@@ -161,7 +162,7 @@ useEffect(() => {
             <hr className="mb-6 hidden lg:block" />
     
             {/* LG: BUTTON: APPLY NOW */}
-            <button className="hidden lg:block text-white bg-brand px-8 py-4 text-xs rounded-md font-light mt-9 hover:opacity-80 transition duration-75 active:opacity-90 focus:outline-brand focus:outline-offset-2">
+            <button className="lg-button-apply-now hidden lg:block text-white bg-brand px-8 py-4 text-xs rounded-md font-light mt-9 hover:opacity-80 transition duration-75 active:opacity-90 focus:outline-brand focus:outline-offset-2">
               APPLY NOW
             </button>
     
@@ -437,10 +438,10 @@ useEffect(() => {
             </div>
     
             {/* LG: CONTAINER: BUTTON, RETURN TO JOB BOARD */}
-            <div className="container-return-to-job-board-button relative mt-24 pb-52 hidden lg:block">
+            <div className="lg-container-return-to-job-board-button relative mt-24 pb-52 hidden lg:block">
     
               {/* BUTTON: RETURN TO JOB BOARD */}
-              <button onClick={() => navigate('/')} className="absolute -left-[5.5rem] text-brand bg-[#384564]/[0.14] rounded-lg flex px-6 py-3 font-semibold text-xs items-center">
+              <button onClick={() => navigate('/')} className="absolute -left-[5.5rem] text-brand bg-gray-200 rounded-lg flex px-6 py-3 font-semibold text-xs items-center hover:bg-gray-300 transition duration-75">
     
                 {/* IMAGE: LEFT (CHEVRON) ARROW */}
                 <img src="/images/left-arrow.svg" className="w-2 h-6 mr-6" />

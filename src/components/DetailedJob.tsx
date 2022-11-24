@@ -61,49 +61,70 @@ export default function DetailedJob({ jobs }: IProps) {
     <div className="main-container-job-details-page">
 
       {/* CONTAINER: JOB DETAILS PAGE */}
-      <div className="main-container-job-details-page flex justify-center mt-5 flex-row lg:mt-[3.25rem]">
+      <div className="main-container-job-details-page flex justify-center mt-5 flex-row 
+      lg:mt-[3.25rem]">
 
         {/** CONTAINER: ALL JOB DETAILS **/}
-        <div className="container-all-jobs-details w-[92%] lg:flex lg:justify-around lg:w-[64.7%] ">
+        <div className="container-all-jobs-details w-[92%] 
+        lg:flex lg:justify-around lg:w-[64.7%] ">
 
           {/* CONTAINER: JOB DETAILS & CONTACTS */}
-          <div className="container-job-details-and-contacts lg:w-[58.6%]">
+          <div className="container-job-details-and-contacts 
+          lg:w-[58.6%]">
 
             {/** CONTAINER: JOB DETAILS & BUTTONS **/}
-            <div className="container-job-details-and-buttons lg:flex items-center justify-between">
+            <div className="container-job-details-and-buttons 
+            lg:flex items-center justify-between">
 
               {/* MAIN HEADER: JOB DETAILS */}
-              <h1 className="main-header-job-details text-brand text-left font-bold text-[1.75rem] pb-2 tracking-[0.413333px] lg:pb-1 lg:text-2xl xl:text-[1.75rem]">
+              <h1 className="main-header-job-details text-brand text-left font-bold text-[1.75rem] pb-2 tracking-[0.413333px] 
+              lg:pb-1 lg:text-2xl 
+              xl:text-[1.75rem]">
                 Job Details
               </h1>
 
               {/* HORIZONTAL LINE */}
-              <hr className="mb-4 lg:hidden" />
+              <hr className="mb-4 
+              lg:hidden" />
 
               {/** CONTAINER: BUTTONS **/}
-              <div className="container-buttons mt-1  my-6 flex lg:my-0 text-text lg:text-base xl:text-lg">
+              <div className="container-buttons text-text mt-1 my-6 flex 
+              lg:my-0 lg:text-base 
+              xl:text-lg">
 
                 {/* BUTTON: SAVE TO MY LIST */}
                 <button
                   onClick={() => console.log("Save to my list button")}
-                  className="button-save-to-my-list flex items-center mr-9 tracking-[-0.5px] rounded-md py-2 transition duration-75 hover:bg-background active:bg-white focus:outline-brand focus:outline-offset-2 lg:mr-2 lg:px-3 xl:px-4"
+                  className="button-save-to-my-list flex items-center mr-9 tracking-[-0.5px] rounded-md py-2 
+                  lg:mr-2 lg:px-3 xl:px-4
+                  hover:bg-background transition duration-75
+                  active:bg-white 
+                  focus:outline-brand focus:outline-offset-2"
                 >
 
                   {/* BUTTON IMAGE: STAR */}
-                  <div className="button-image-star w-5 mr-3 h-5 bg-[url('../public/images/star-button.svg')] bg-no-repeat lg:bg-[url('../public/images/save-button.svg')] lg:w-6 lg:h-6"></div>
+                  <div className="button-image-star w-5 mr-3 h-5 bg-[url('../public/images/star-button.svg')] bg-no-repeat 
+                  lg:bg-[url('../public/images/save-button.svg')] lg:w-6 lg:h-6"></div>
                   Save to my list
                 </button>
 
                 {/* BUTTON: SHARE */}
                 <button
                   onClick={() => console.log("Share button")}
-                  className="button-share flex items-center tracking-[-0.5px] rounded-md py-1 transition duration-75 hover:bg-background active:bg-white focus:outline-brand focus:outline-offset-2 lg:px-3 xl:px-4"
+                  className="button-share flex items-center tracking-[-0.5px] rounded-md py-1
+                  lg:px-3 
+                  xl:px-4 
+                  hover:bg-background transition duration-75
+                  active:bg-white 
+                  focus:outline-brand focus:outline-offset-2 "
                 >
 
                   {/* BUTTON IMAGE: SHARE */}
                   <img
                     src="/images/share-button.svg"
-                    className="button-image-share w-4 mr-3 lg:mr-2 lg:w-5"
+                    className="button-image-share w-4 mr-3 
+                    lg:mr-2 
+                    lg:w-5"
                   />
                   Share
                 </button>
@@ -111,30 +132,42 @@ export default function DetailedJob({ jobs }: IProps) {
             </div>
 
             {/* LG: HORIZONTAL LINE */}
-            <hr className="mb-6 mt-1 hidden lg:block" />
+            <hr className="mb-6 mt-1 hidden 
+            lg:block" />
 
             {/* LG: CONTAINER: BUTTON APPLY NOW & LG-ONLY: SALARY */}
             <div className="lg-container-button-apply-now-and-lg-only-salary mt-9 ">
 
               {/* LG: BUTTON: APPLY NOW */}
-              <button className="lg-button-apply-now hidden lg:block text-white bg-brand px-[1.95rem] py-[1.1rem] text-xs rounded-md font-light mt-4 hover:opacity-80 transition duration-75 active:opacity-90 focus:outline-brand focus:outline-offset-2">
+              <button onClick={() => console.log('Top Apply now button')} className="lg-button-apply-now hidden lg:block text-white bg-brand px-[1.95rem] py-[1.1rem] text-xs rounded-md font-light mt-4 
+              hover:opacity-80 transition duration-75 
+              active:opacity-90 
+              focus:outline-brand focus:outline-offset-2">
                 APPLY NOW
               </button>
             </div>
 
             {/* CONTAINER: JOB TITLE & (POSTED & SALARY) */}
-            <div className="line-job-title -mt-8 xl:flex items-start justify-between lg:mt-10">
+            <div className="line-job-title -mt-8 
+            lg:mt-10
+            xl:flex items-start justify-between">
 
               {/* LINE: JOB TITLE */}
-              <h2 className="line-job-title text-brand font-bold text-2xl leading-[1.875rem] tracking-[-0.75px] mt-8 lg:-mt-1 lg:text-[1.375rem] xl:w-[65%] xl:text-2xl ">
+              <h2 className="line-job-title text-brand font-bold text-2xl leading-[1.875rem] tracking-[-0.75px] mt-8 
+              lg:-mt-1 lg:text-[1.375rem] 
+              xl:w-[65%] xl:text-2xl ">
                 {job.title}
               </h2>
 
               {/* CONTAINER: POSTED & SALARY */}
-              <div className="container-posted-and-salary flex xl:flex-col-reverse justify-between items-center lg:mt-4 lg:mb-2 xl:-mt-1 ">
+              <div className="container-posted-and-salary flex xl:flex-col-reverse justify-between items-center 
+              lg:mt-4 lg:mb-2 
+              xl:-mt-1 ">
 
                 {/* LINE: POSTED */}
-                <p className="line-posted text-[0.8125rem] font-light text-[#0304079a]  lg:text-lg lg:text-[#38415d5b] lg:tracking-[0.5625px] lg:mt-2 lg:mb-1 xl:hidden">
+                <p className="line-posted text-[0.8125rem] font-light text-[#0304079a] 
+                lg:text-lg lg:text-[#38415d5b] lg:tracking-[0.5625px] lg:mt-2 lg:mb-1 
+                xl:hidden">
                   Posted {calculateDate(job.createdAt)} years ago
                 </p>
 
@@ -142,12 +175,14 @@ export default function DetailedJob({ jobs }: IProps) {
                 <div className="container-salary xl:flex xl:flex-col-reverse xl:mr-3">
 
                   {/* LINE: BRUTTO */}
-                  <p className="line-brutto text-text text-lg tracking-tighter text-right mt-1 xl:-mt-[0.375rem] xl:text-left">
+                  <p className="line-brutto text-text text-lg tracking-tighter text-right mt-1 
+                  xl:-mt-[0.375rem] xl:text-left">
                     Brutto, per year
                   </p>
 
                   {/* LINE: SALARY RANGE */}
-                  <h3 className="line-salary-range text-brand font-bold text-xl text-right mb-3 tracking-[-0.625px] xl:mb-0">
+                  <h3 className="line-salary-range text-brand font-bold text-xl text-right mb-3 tracking-[-0.625px] 
+                  xl:mb-0">
                     € {job.salary.replace(/-/, "—").replace(/k/gi, " 000")}
                   </h3>
                 </div>
@@ -165,17 +200,20 @@ export default function DetailedJob({ jobs }: IProps) {
             </p>
 
             {/* LINE: RESPONSOPILITIES */}
-            <h4 className="line-responsopilities text-brand font-bold mt-10 mb-1 text-xl tracking-[-0.625px] lg:mt-8">
+            <h4 className="line-responsopilities text-brand font-bold mt-10 mb-1 text-xl tracking-[-0.625px] 
+            lg:mt-8">
               Responsopilities
             </h4>
 
             {/* PARAGRAPH: RESPONSOPILITIES */}
-            <p className="paragraph-responsopilities text-paragraph text-lg leading-6 tracking-tighter lg:mt-2">
+            <p className="paragraph-responsopilities text-paragraph text-lg leading-6 tracking-tighter 
+            lg:mt-2">
               {responsopilities}
             </p>
 
             {/* LINE: COMPENSATION & BENEFITS */}
-            <h4 className="line-compensation-and-benefits text-brand font-bold mt-4 mb-7 text-xl tracking-[-0.625px] lg:mt-9 lg:mb-2">
+            <h4 className="line-compensation-and-benefits text-brand font-bold mt-4 mb-7 text-xl tracking-[-0.625px] 
+            lg:mt-9 lg:mb-2">
               Compensation & Benefits:
             </h4>
 
@@ -195,7 +233,8 @@ export default function DetailedJob({ jobs }: IProps) {
                     // CONTAINER: LIST ITEM
                     <div key={index} className="flex ">
                       {/* LIST ITEM: BULLET POINT */}
-                      <li className="text-[rgba(56,_69,_100,_0.632594)] text-2xl list-[square] list-inside ml-[0.09375rem] lg:list-outside lg:leading-6"></li>
+                      <li className="text-[rgba(56,_69,_100,_0.632594)] text-2xl list-[square] list-inside ml-[0.09375rem] 
+                      lg:list-outside lg:leading-6"></li>
                       {/* LIST ITEM: TEXT */}
                       <span className="text-paragraph text-lg leading-6 tracking-tighter pl-0">
                         {benefit}.
@@ -207,27 +246,36 @@ export default function DetailedJob({ jobs }: IProps) {
             </ul>
 
             {/* CONTAINER: BUTTON */}
-            <div className="container-button flex justify-center mt-6 lg:justify-start lg:mt-9">
+            <div className="container-button flex justify-center mt-6 
+            lg:justify-start lg:mt-9">
 
               {/* BUTTON: APPLY NOW */}
-              <button className="text-white bg-brand px-8 py-[1.1rem] text-xs rounded-md lg:font-light hover:opacity-80 transition duration-75 active:opacity-90 focus:outline-brand focus:outline-offset-2">
+              <button onClick={() => console.log('Bottom Apply now button')}  
+              className="text-white bg-brand px-8 py-[1.1rem] text-xs rounded-md 
+              lg:font-light 
+              hover:opacity-80 transition duration-75 
+              active:opacity-90 
+              focus:outline-brand focus:outline-offset-2">
                 APPLY NOW
               </button>
             </div>
 
             {/* CONTAINER: ATTACHED IMAGES & ADDITIONAL INFO */}
-            <div className="container-attached-images-and-additional-info lg:flex flex-col-reverse">
+            <div className="container-attached-images-and-additional-info 
+            lg:flex flex-col-reverse">
 
               {/** SECTION: ATTACHED IMAGES **/}
               <section className="section-attached-images">
 
                 {/* HEADER: ATTACHED IMAGES */}
-                <h2 className="header-attached-images text-brand font-bold text-[1.75rem] tracking-[0.413333px] mt-[8.3rem] lg:mt-20">
+                <h2 className="header-attached-images text-brand font-bold text-[1.75rem] tracking-[0.413333px] mt-[8.3rem] 
+                lg:mt-20">
                   Attached images
                 </h2>
 
                 {/* HORIZONTAL LINE */}
-                <hr className="mt-1 mb-6 lg:mb-5" />
+                <hr className="mt-1 mb-6 
+                lg:mb-5" />
 
                 {/* CONTAINER: IMAGES */}
                 <div className="container-images w-full overflow-hidden">
@@ -264,7 +312,9 @@ export default function DetailedJob({ jobs }: IProps) {
                         <SwiperSlide key={index}>
                           {/* IMAGE */}
                           <img
-                            className="object-cover object-bottom w-full h-[7.1875rem] rounded-lg sm:h-40 md:h-[7.1875rem]"
+                            className="object-cover object-bottom w-full h-[7.1875rem] rounded-lg 
+                            sm:h-40 
+                            md:h-[7.1875rem]"
                             src={picture}
                           />
                         </SwiperSlide>
@@ -278,7 +328,8 @@ export default function DetailedJob({ jobs }: IProps) {
               <section className="section-additional-info">
 
                 {/* HEADER: ADDITIONAL INFO */}
-                <h2 className="header-additional-info text-brand font-bold text-[1.75rem] tracking-[0.413333px] mt-14 lg:mt-[5.15rem]">
+                <h2 className="header-additional-info text-brand font-bold text-[1.75rem] tracking-[0.413333px] mt-14 
+                lg:mt-[5.15rem]">
                   Additional info
                 </h2>
 
@@ -336,24 +387,34 @@ export default function DetailedJob({ jobs }: IProps) {
           <section className="section-contacts ">
 
             {/* HEADER: CONTACTS */}
-            <h2 className="header-contacts text-brand font-bold text-[1.75rem] tracking-[0.413333px] mt-[15.5%] lg:hidden">
+            <h2 className="header-contacts text-brand font-bold text-[1.75rem] tracking-[0.413333px] mt-[15.5%] 
+            lg:hidden">
               Contacts
             </h2>
 
             {/* HORIZONTAL LINE */}
-            <hr className="mt-2 mb-5 lg:hidden" />
+            <hr className="mt-2 mb-5 
+            lg:hidden" />
 
             {/* CONTAINER: CONTACTS & MAP*/}
-            <div className="container-contacts-and-map w-[97.5%] ml-[0.4375rem] h-[25.7rem] rounded-lg overflow-hidden max-w-[50rem] mb-9 sm:h-[33rem] md:h-[36rem] lg:ml-[8rem] lg:mt-1 lg:h-[25.6rem] lg:rounded-xl lg:w-[20rem] xl:min-w-[20rem] xl:w-[78%]">
+            <div className="container-contacts-and-map w-[97.5%] ml-[0.4375rem] h-[25.7rem] rounded-lg overflow-hidden max-w-[50rem] mb-9 
+            sm:h-[33rem] 
+            md:h-[36rem] 
+            lg:ml-[8rem] lg:mt-1 lg:h-[25.6rem] lg:rounded-xl lg:w-[20rem] 
+            xl:min-w-[20rem] xl:w-[78%]">
 
               {/* CONTAINER: CONTACTS */}
-              <div className="container-contacts bg-[#2A3047] text-[#E7EAF0] pl-[3.88rem] overflow-hidden z-0 lg:relative">
+              <div className="container-contacts bg-[#2A3047] text-[#E7EAF0] pl-[3.88rem] overflow-hidden z-0 
+              lg:relative">
 
                 {/* LG: CONTACTS BACKGROUND CIRCLE */}
-                <div className="lg-contacts-background-circle bg-[#202336] w-72 h-64 absolute left-[-5.5rem] rounded-full -z-10 hidden lg:block"></div>
+                <div className="lg-contacts-background-circle lg:block bg-[#202336] w-72 h-64 absolute left-[-5.5rem] rounded-full -z-10 hidden"></div>
 
                 {/* LINE: DEPARTMENT NAME */}
-                <h3 className="line-department-name tracking-[0.23619px] font-semibold pt-8 leading-[1.1875rem] sm:text-lg md:text-xl lg:text-xl lg:leading-[1.5625rem] lg:tracking-[-0.625px] lg:font-medium">
+                <h3 className="line-department-name tracking-[0.23619px] font-semibold pt-8 leading-[1.1875rem] 
+                sm:text-lg 
+                md:text-xl 
+                lg:text-xl lg:leading-[1.5625rem] lg:tracking-[-0.625px] lg:font-medium">
                   Department name.
 
                   {/* LINE BREAK */}
@@ -364,12 +425,16 @@ export default function DetailedJob({ jobs }: IProps) {
                 </h3>
 
                 {/* LINE: ADDRESS */}
-                <p className="line-address flex tracking-[0.5px] mt-4 text-[0.9375rem] font-thin sm:text-base md:text-lg lg:text-lg lg:leading-[1.5rem] lg:tracking-tighter lg:mt-2">
+                <p className="line-address flex tracking-[0.5px] mt-4 text-[0.9375rem] font-thin 
+                sm:text-base 
+                md:text-lg 
+                lg:text-lg lg:leading-[1.5rem] lg:tracking-tighter lg:mt-2">
 
                   {/* IMAGE: GEO MARKER */}
                   <img
                     src="/images/geo.svg"
-                    className="image-geo-marker w-3 mr-2 lg:w-[0.875rem]"
+                    className="image-geo-marker w-3 mr-2 
+                    lg:w-[0.875rem]"
                   />
 
                   {/* ADDRESS TEXT */}
@@ -380,7 +445,10 @@ export default function DetailedJob({ jobs }: IProps) {
                 </p>
 
                 {/* LINES: PHONE NUMBER & EMAIL */}
-                <p className="lines-phone-number-and-email text-[#FFFFFFAB] font-thin tracking-[0.5px] pt-2 pb-[10%] text-[0.9375rem] sm:text-base md:text-lg lg:text-[#E7EAF0] lg:tracking-tighter lg:text-lg lg:leading-[1.5rem] lg:pb-5">
+                <p className="lines-phone-number-and-email text-[#FFFFFFAB] font-thin tracking-[0.5px] pt-2 pb-[10%] text-[0.9375rem] 
+                sm:text-base 
+                md:text-lg 
+                lg:text-[#E7EAF0] lg:tracking-tighter lg:text-lg lg:leading-[1.5rem] lg:pb-5">
 
                   {/* LINE: PHONE NUMBER */}
                   {job.phone},
@@ -408,12 +476,19 @@ export default function DetailedJob({ jobs }: IProps) {
       </div>
 
       {/* LG: CONTAINER: BUTTON, RETURN TO JOB BOARD */}
-      <div className="lg-container-return-to-job-board-button relative mt-24 pb-52 hidden lg:block">
+      <div className="lg-container-return-to-job-board-button hidden 
+      lg:block relative mt-24 pb-52 ">
 
         {/* BUTTON: RETURN TO JOB BOARD */}
         <button
           onClick={() => navigate("/")}
-          className="button-return-to-job-board relative lg:left-[5%] xl:left-[10%] 2xl:left-[13%] text-brand bg-gray-200 rounded-lg flex px-6 py-3 font-semibold text-xs items-center hover:bg-gray-300 transition duration-75"
+          className="button-return-to-job-board relative text-brand bg-gray-200 rounded-lg flex px-6 py-3 font-semibold text-xs items-center
+          lg:left-[5%] 
+          xl:left-[10%] 
+          2xl:left-[13%]  
+          hover:bg-gray-300 transition duration-75 
+          active:bg-gray-200
+          focus:outline-brand focus:outline-offset-4"
         >
 
           {/* IMAGE: LEFT (CHEVRON) ARROW */}

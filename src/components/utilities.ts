@@ -27,9 +27,9 @@ export const mapApiKey = process.env.REACT_APP_MAP_API_KEY;
 
 
 /**
- * Calculate difference in years (since API returns jobs posted years ago), between current year and year when job was posted
+ * Calculate difference in years (since API returns only jobs posted years ago), between current year and a year when job was posted
  * @param created - year when job was created
- * @returns number of difference in years
+ * @returns difference in number of years
  */
 export function calculateDate (created: string) {
   // Year when job was created

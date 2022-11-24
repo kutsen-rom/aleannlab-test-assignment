@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import LoadingScreen from "./components/LoadingScreen";
 import ErrorPage from "./components/ErrorPage";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import JobList from "./components/JobList";
 import DetailedJob from "./components/DetailedJob";
 
@@ -118,8 +118,9 @@ export default function App() {
 
   return (
     <Routes>
-          <Route path='/' element={<JobList jobs={jobs} />} />
-          <Route path='/:id' element={<DetailedJob jobs={jobs} />} />
+        <Route path='/' element={<Navigate to='/1' />}/>
+        <Route path=':page' index element={<JobList jobs={jobs} />} />
+        <Route path='/id/:id' element={<DetailedJob jobs={jobs} />} />
     </Routes>
   );
 }

@@ -67,7 +67,7 @@ export default function JobCard({ job }: IProps) {
               <div className="container-rating flex items-center">
                 
                 {/* RATING'S STARS */}
-                {/* Create an array with @rating number of elements and than fill it with any value (in this case asterisk *)
+                {/* Create an array with @rating number of elements and then fill it with any value (in this case asterisk *)
   and then iterate through it to render needed amount of stars*/}
                 {Array(rating)
                   .fill('*')
@@ -144,7 +144,7 @@ export default function JobCard({ job }: IProps) {
           <div className="lg-container-rating flex items-center -ml-20 xl:-ml-28">
 
             {/* LG: RATING'S STARS */}
-            {/* Create an array with @rating number of elements and than fill it with any value (in this case asterisk *)
+            {/* Create an array with @rating number of elements and then fill it with any value (in this case asterisk *)
   and then iterate through it to render needed amount of stars*/}
             {Array(rating)
               .fill('*')

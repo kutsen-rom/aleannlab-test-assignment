@@ -2,7 +2,7 @@ import { Jobs as IProps } from "../App";
 import { Link, useParams } from 'react-router-dom'
 import JobCard from "./JobCard";
 import Pagination from "./Pagination";
-import { jobsPerPage } from "./utilities";
+import { jobsPerPage } from "./Pagination";
 
 
 export default function JobList ({ jobs }: IProps) {
@@ -18,12 +18,13 @@ export default function JobList ({ jobs }: IProps) {
     // Number (index) to which we will show jobs array
     const to = currentPage * jobsPerPage - 1;
 
-window.scroll(0, 0);
+    // Scroll to the top of the page at every page load
+    window.scroll(0, 0);
   
   return (
     // MAIN CONTAINER: JOB LIST
-    <div className="main-container-job-list bg-background flex flex-col items-center justify-around 
-    lg:pt-[1.8rem]">
+    <div className="main-container-job-list bg-background flex flex-col items-center 
+    lg:pt-[1.8rem] min-h-[100vh]">
 
       {/* For every job in a jobs array... */}
       {jobs.map((job, index) => {
@@ -45,9 +46,10 @@ window.scroll(0, 0);
                 </Link>
             </div>
         )
-        }
+        } else return null
       })}
 
+      {/* PAGINATION COMPONENT */}
       <Pagination jobs={jobs} />
     </div>
   );

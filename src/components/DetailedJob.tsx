@@ -28,7 +28,7 @@ export default function DetailedJob({ jobs }: IProps) {
     if (job) {
       getAddress(setAddress, job);
     }
-  }, []);
+  }, [job]);
 
   // If no job is found render ErrorPage component
   if (!job) {
@@ -54,6 +54,7 @@ export default function DetailedJob({ jobs }: IProps) {
     // and remove last element from array because it's just a dot
     .slice(0, -1);
 
+  // Scroll to the top of the page at every page load
   window.scroll(0, 0);
 
   return (
@@ -125,6 +126,7 @@ export default function DetailedJob({ jobs }: IProps) {
                     className="button-image-share w-4 mr-3 
                     lg:mr-2 
                     lg:w-5"
+                    alt="Share button"
                   />
                   Share
                 </button>
@@ -241,7 +243,7 @@ export default function DetailedJob({ jobs }: IProps) {
                       </span>
                     </div>
                   );
-                }
+                } else return null
               })}
             </ul>
 
@@ -288,11 +290,15 @@ export default function DetailedJob({ jobs }: IProps) {
                         slidesPerView: 3,
                         width: 628,
                       },
-                      1366: {
+                      1024: {
                         slidesPerView: 3,
-                        width: 550,
+                        width: 380,
                       },
-                      1568: {
+                      1280: {
+                        slidesPerView: 4,
+                        width: 658,
+                      },
+                      1536: {
                         slidesPerView: 3,
                         width: 628,
                       },
@@ -302,7 +308,7 @@ export default function DetailedJob({ jobs }: IProps) {
                       },
                     }}
                     spaceBetween={10}
-                    className="lg:w-[768px]"
+                    className="lg:w-[768px] 2xl:w-[800px]"
                   >
                     
                     {/* For every image in job.pictures... */}
@@ -314,8 +320,12 @@ export default function DetailedJob({ jobs }: IProps) {
                           <img
                             className="object-cover object-bottom w-full h-[7.1875rem] rounded-lg 
                             sm:h-40 
-                            md:h-[7.1875rem]"
+                            md:h-28
+                            lg:h-16
+                            xl:h-24
+                            2xl:h-[7.1875rem]"
                             src={picture}
+                            alt="Job presentation"
                           />
                         </SwiperSlide>
                       );
@@ -435,6 +445,7 @@ export default function DetailedJob({ jobs }: IProps) {
                     src="/images/geo.svg"
                     className="image-geo-marker w-3 mr-2 
                     lg:w-[0.875rem]"
+                    alt="geo-marker"
                   />
 
                   {/* ADDRESS TEXT */}
@@ -464,11 +475,13 @@ export default function DetailedJob({ jobs }: IProps) {
               {/* CONTAINER: MAP */}
               <div className="container-map w-full h-80 overflow-hidden -mt-1">
 
-                {/* MAP */}
+                {/* IMAGE: MAP */}
                 <img
                   className="map"
-                  src={`https://maps.googleapis.com/maps/api/staticmap?center=48.2172,16.3551&markers=icon:http://s.gravatar.com/avatar/3cf9510534e7d5dcbc2fdb25c7b6d8fb?s=38%26d=identicon%26r=PG%7C48.2206,16.3468&zoom=14&size=400x300&scale=2&key=${mapApiKey}&map_id=${mapId}`}
-                />
+                  src={`https://maps.googleapis.com/maps/api/staticmap?center=${job.location.lat - 0.005},${job.location.long + 0.0089}&markers=icon:http://s.gravatar.com/avatar/3cf9510534e7d5dcbc2fdb25c7b6d8fb?s=38%26d=identicon%26r=PG%7C${job.location.lat},${job.location.long}&zoom=14&size=400x300&scale=2&key=${mapApiKey}&map_id=${mapId}`}
+                  alt="Google Map"
+            />
+                {/* -0.0034  center, +0.0081*/}
               </div>
             </div>
           </section>
@@ -495,6 +508,7 @@ export default function DetailedJob({ jobs }: IProps) {
           <img
             src="/images/left-arrow.svg"
             className="image-left-chevron-arrow w-2 h-6 mr-6"
+            alt="chevron-left"
           />
           RETURN TO JOB BOARD
         </button>

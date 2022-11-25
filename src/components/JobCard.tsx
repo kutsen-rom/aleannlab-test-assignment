@@ -21,7 +21,7 @@ export default function JobCard({ job }: IProps) {
   //   When component mounts call getAddress function once to setAddress state to fetched address by job's latitude and longtitude
   useEffect(() => {
     getAddress(setAddress, job);
-  }, []);
+  }, [job]);
 
   return (
 
@@ -176,7 +176,7 @@ export default function JobCard({ job }: IProps) {
             >
 
               {/* IMAGE: SAVE BUTTON */}
-              <img src="/images/save-button.svg" className="w-5 h-5" />
+              <img src="/images/save-button.svg" className="w-5 h-5" alt="Save button" />
             </Link>
 
             {/* LG: LINE: POSTED */}

@@ -51,6 +51,8 @@ interface IState {
 
 export default function App() {
 
+  // Since Redux is not mentioned in technology stack I'll go without it
+
   /**
    * Create state with a default value of null and a type: array of jobs or null
    */

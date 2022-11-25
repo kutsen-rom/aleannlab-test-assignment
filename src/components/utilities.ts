@@ -3,9 +3,6 @@ import { Job } from "../App";
 // Key for Google Static Map API
 export const mapApiKey = process.env.REACT_APP_MAP_API_KEY;
 
-// Quantity of jobs to show on one page
-export const jobsPerPage = 2;
-
 /**
  * Fetch address with Google Geocode API, with latitude and longitude,
  * set address state to formatted_address

@@ -1,7 +1,40 @@
 import { Job } from "../App";
 
+// API URL
+const url =
+  "https://api.json-generator.com/templates/ZM1r0eic3XEy/data?access_token=";
+
+// API Bearer Token
+const bearerToken = process.env.REACT_APP_BEARER_TOKEN;
+
 // Key for Google Static Map API
 export const mapApiKey = process.env.REACT_APP_MAP_API_KEY;
+
+  /**
+    * Fetch jobs list from provided URL and set is as a state, if failed set error state to true
+    *
+    * @returns json array of objects
+    */
+   export async function getData(setState: React.Dispatch<React.SetStateAction<Job[] | null>>, setError: React.Dispatch<React.SetStateAction<boolean>>) {
+ 
+    // Fetch jobs list data from url
+    try {
+      const result = await fetch(url + bearerToken);
+
+      // Convert data to JSON
+      const json = await result.json();
+
+      // Set state to received jobs list
+      setState(json);
+      return json;
+
+      // If failed to fetch data...
+    } catch (e) {
+
+      // set error state to true
+      return setError(true);
+    }
+  };
 
 /**
  * Fetch address with Google Geocode API, with latitude and longitude,

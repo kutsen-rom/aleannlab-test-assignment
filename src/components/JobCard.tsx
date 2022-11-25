@@ -172,7 +172,7 @@ export default function JobCard({ job }: IProps) {
               hover:bg-[#EDEFF9] transition duration-100 
               active:bg-white 
               focus:outline-brand focus:outline-offset-2"
-              onClick={() => console.log("Save button")}
+              onClick={(e) => {e.preventDefault(); console.log("Save button")}}
             >
 
               {/* IMAGE: SAVE BUTTON */}

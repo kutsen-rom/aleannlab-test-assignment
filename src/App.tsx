@@ -1,17 +1,10 @@
 import React, { useState, useEffect } from 'react';
+import { getData } from './components/utilities';
 import LoadingScreen from "./components/LoadingScreen";
 import ErrorPage from "./components/ErrorPage";
 import { Routes, Route, Navigate } from "react-router-dom";
 import JobList from "./components/JobList";
 import DetailedJob from "./components/DetailedJob";
-
-
-// API URL
-const url =
-  "https://api.json-generator.com/templates/ZM1r0eic3XEy/data?access_token=";
-
-  // API Bearer Token
-const bearerToken = process.env.REACT_APP_BEARER_TOKEN;
 
 
   // Type of single job
@@ -64,39 +57,12 @@ export default function App() {
     */
    const [error, setError] = useState<IState["error"]>(false);
 
- 
-   /**
-    * Fetch jobs list from provided URL and set is as a state, if failed set error state to true
-    *
-    * @returns json array of objects
-    */
-   async function getData() {
- 
-     // Fetch jobs list data from url
-     try {
-       const result = await fetch(url + bearerToken);
- 
-       // Convert data to JSON
-       const json = await result.json();
- 
-       // Set state to received jobs list
-       setJobs(json);
-       return json;
- 
-       // If failed to fetch data...
-     } catch (e) {
- 
-       // set error state to true
-       return setError(true);
-     }
-   };
- 
-   
+  
    /**
     * When component first loads call getData() function once to receive job list and set state
     */
    useEffect(() => {
-     getData();
+     getData(setJobs, setError);
    }, []);
  
  

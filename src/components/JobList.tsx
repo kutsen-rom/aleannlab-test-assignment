@@ -2,6 +2,7 @@ import { Jobs as IProps } from "../App";
 import { Link, useParams } from 'react-router-dom'
 import JobCard from "./JobCard";
 import Pagination from "./Pagination";
+import { jobsPerPage } from "./utilities";
 
 
 export default function JobList ({ jobs }: IProps) {
@@ -10,9 +11,6 @@ export default function JobList ({ jobs }: IProps) {
 
     // Current page number from URL
     const currentPage = Number(params.page);
-  
-    // Quantity of jobs to show on one page
-    const jobsPerPage = 3;
 
     // Number (index) from where we will show jobs array
     const from = (currentPage - 1) * jobsPerPage;
@@ -38,7 +36,9 @@ window.scroll(0, 0);
 
                 {/* render link... */}
                 <Link key={job.id} className="link w-[95%] flex justify-center 
-                lg:w-[73%] " to={`/id/${job.id}`}>
+                lg:w-[85%]
+                xl:w-[80%]
+                2xl:w-[73%] " to={`/id/${job.id}`}>
 
                     {/* to JobCard component */}
                     <JobCard key={job.id} job={job} />

@@ -27,7 +27,7 @@ export default function JobCard({ job }: IProps) {
 
     // MAIN CONTAINER: JOB CARD
     <div className="main-container-job-card w-full bg-background-job mt-2 shadow-[0px_1.5px_1px_rgb(170,170,170)] rounded-lg 
-    lg:bg-white lg:shadow-[1px_1.5px_4px_rgb(200,200,200)] lg:mt-0 lg:hover:shadow-[1px_1.5px_6px_rgb(100,100,100)] 
+    lg:bg-white lg:shadow-[1px_1px_4px_rgb(180,180,180)] lg:mt-0 lg:hover:shadow-[1px_1.5px_6px_rgb(100,100,100)] 
     focus:outline-brand">
 
       {/* CONTAINER: IMAGE & INFO & LG:RATING & POSTED */}
@@ -105,7 +105,7 @@ export default function JobCard({ job }: IProps) {
             lg:text-[#9FA4B1] lg:font-light ">
               Department name •&nbsp;
               
-              {/* I'm pretty sure it's a typo but just to be pixel perfect... */}
+              {/* I'm pretty sure it's a typo but just to do as it is in a design... */}
               {/* LG: SPACE */}
               <span className="hidden 
               lg:inline-block">&nbsp;</span>
@@ -169,7 +169,7 @@ export default function JobCard({ job }: IProps) {
             <Link
               to=""
               className="lg-button-save self-end mr-[0.375rem] px-3 py-3 rounded-md 
-              hover:bg-background transition duration-75 
+              hover:bg-[#EDEFF9] transition duration-100 
               active:bg-white 
               focus:outline-brand focus:outline-offset-2"
               onClick={() => console.log("Save button")}
@@ -180,7 +180,7 @@ export default function JobCard({ job }: IProps) {
             </Link>
 
             {/* LG: LINE: POSTED */}
-            <p className=" w-36 lg-line-posted text-right text-muted font-light tracking-[0.23619px] mb-[0.65rem] ml-4">
+            <p className=" w-36 lg-line-posted text-right text-muted font-light tracking-[0.23619px] mb-[0.65rem] ml-5 mr-20 xl:mr-32 2xl:mr-0">
               Posted {calculateDate(job.createdAt)} years ago
             </p>
           </div>

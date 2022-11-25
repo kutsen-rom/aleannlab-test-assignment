@@ -89,6 +89,7 @@ export default function App() {
         <Route path='/' element={<Navigate to='/1' />}/>
         <Route path=':page' index element={<JobList jobs={jobs} />} />
         <Route path='/id/:id' element={<DetailedJob jobs={jobs} />} />
+        <Route path="*" element={<ErrorPage />} />
     </Routes>
   );
 }

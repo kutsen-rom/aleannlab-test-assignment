@@ -443,7 +443,7 @@ export default function DetailedJob({ jobs }: IProps) {
                   {/* IMAGE: GEO MARKER */}
                   <img
                     src="/images/geo.svg"
-                    className="image-geo-marker w-3 mr-2 
+                    className="image-geo-marker w-3 mr-2 h-6
                     lg:w-[0.875rem]"
                     alt="geo-marker"
                   />

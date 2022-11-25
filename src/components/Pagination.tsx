@@ -102,7 +102,7 @@ export default function Pagination({ jobs }: Jobs) {
               }
               className={({ isActive }) =>
                 [
-                  "navlin-to-page text-[#858B9D] font-bold px-4 sm:text-[17px] md:text-lg lg:text-[#70778B] lg:pt-5 lg:pb-2 lg:mb-2 xl:text-lg 2xl:text-[20.8px] hover:bg-[#EDEFF9] transition duration-75 active:bg-[#F9FAFD]",
+                  "navlin-to-page text-[#868c9e] font-bold px-4 sm:text-[17px] md:text-lg lg:text-[#70778B] lg:pt-5 lg:pb-2 lg:mb-2 xl:text-lg 2xl:text-[20.8px] hover:bg-[#EDEFF9] transition duration-75 active:bg-[#F9FAFD]",
                   isActive
                     ? "text-[#55699e] px-2 border-b-[3px] border-[#55699E] pb-[0.375rem] lg:pb-[0.29rem] lg:text-[#5876C5] lg:border-[#5876C5] pointer-events-none"
                     : null,

@@ -23,6 +23,15 @@ module.exports = {
       },
       outlineColor: {
         brand: "var(--color-brand)",
+      },
+      keyframes: {
+        pulsar: {
+          '0%, 100%': { transform: 'scale(0.8)', opacity: .5 },
+          '50%': { transform: 'scale(1)', opacity: 1},
+        },
+        animation: {
+          pulsar: 'pulsar 2s cubic-bezier(0.4, 0, 0.6, 1) infinite'
+        }
       }
     },
   },

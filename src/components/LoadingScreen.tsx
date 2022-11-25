@@ -8,13 +8,13 @@ export default function LoadingScreen() {
             <div className="container-stripes flex w-12 justify-around">
 
                 {/* STRIPE WITH -0.2 SECONDS ANIMATION DELAY */}
-                <div className="stripe-first w-2 h-8 bg-brand animate-[pulse_0.6s_infinite_-0.2s]"></div>
+                <div className="stripe-first w-2 h-8 bg-brand animate-[pulsar_0.6s_infinite_-0.2s]"></div>
 
                 {/* STRIPE WITH -0.4 SECONDS ANIMATION DELAY */}
-                <div className="stripe-second w-2 h-8 bg-brand animate-[pulse_0.6s_infinite_-0.4s]"></div>
+                <div className="stripe-second w-2 h-8 bg-brand animate-[pulsar_0.6s_infinite_-0.4s]"></div>
 
                 {/* STRIPE WITH NO ANIMATION DELAY*/}
-                <div className="stripe-third w-2 h-8 bg-brand animate-[pulse_0.6s_infinite_]"></div>
+                <div className="stripe-third w-2 h-8 bg-brand animate-[pulsar_0.6s_infinite_]"></div>
             </div>
         </div>
     )

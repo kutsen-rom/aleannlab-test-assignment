@@ -5,7 +5,7 @@
 </div>
 
 # AleannLab test assignment
- This project was created as a test assignment for AleannLab with [Create React App](https://github.com/facebook/create-react-app).
+ <a target="_blank" href="https://kutsen-rom-aleannlab.netlify.app">This project</a> was created as a test assignment for AleannLab with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Technologies Used
 <div align='center''>    
